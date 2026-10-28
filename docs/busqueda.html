@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Laboratorios Viazcan</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Favicon -->   
+	<link rel="shortcut icon"
+	href="https://static.wixstatic.com/media/2858b2_bb7a8c2599a24241b5411826d32ed088.png/v1/fill/w_32%2Ch_32%2Clg_1%2Cusm_0.66_1.00_0.01/2858b2_bb7a8c2599a24241b5411826d32ed088.png"
+	type="image/png" />
+
+	<!-- Google Font -->   
+	<link href="https://fonts.googleapis.com/css2?family=Jost&display=swap" rel="stylesheet">
+
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<!--link rel="stylesheet" href="css/bootstrap.min.css"/-->
+	<!--link rel="stylesheet" href="css/font-awesome.min.css"/-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>	
+	
+	<link rel="stylesheet" href="css/flaticon.css"/>
+	<link rel="stylesheet" href="css/owl.carousel.css"/>
+	<link rel="stylesheet" href="css/style.css"/>
+	<link rel="stylesheet" href="css/animate.css"/>
+
+	<!--====== Javascripts & Jquery ======-->
+	<!--script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script-->
+
+	<!--script src="js/jquery-3.2.1.min.js"></script-->
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<!--script src="js/bootstrap.min.js"></script-->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/circle-progress.min.js"></script>
+	<script src="js/main.js"></script>
+	
+  
+
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<!-- production version, optimized for size and speed -->
+	<!--<script src="https://cdn.jsdelivr.net/npm/vue"></script>-->
+
+
+
+	<!--[if lt IE 9]>
+	  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+</head>
+<body >
+	<!-- Page Preloder -->
+	<div id="preloder">
+		<div class="loader"></div>
+	</div>
+	
+
+	<!-- Header section -->
+	<!--<header class="header-section">-->
+		<div class="container">
+			<!-- Site Logo -->
+			<a href="index.html" class="site-logo">
+				<img src="img/viaz2.png" alt="">
+			</a>
+			<!-- responsive -->
+			<div class="nav-switch">
+				<i class="fa fa-bars"></i>
+			</div>
+			<!-- Main Menu -->
+			<ul class="main-menu">
+				<li><a href="index.html">Inicio</a></li>
+				<li><a href="about.html">Nosotros</a></li>
+				<li ><a href="service.html">Servicios</a></li>
+				<li><a href="blog.html">Noticias</a></li>
+				<li><a href="contact.html">Contactanos</a></li>
+			</ul>
+		</div>
+<!-- Header section end -->
+                                                
+	<!-- Page info section -->
+	<section class="page-info-section set-bg" data-setbg="img/page-info-bg/2.jpg">
+		<div  class="container">
+			<h2>Busca tus estudios</h2>
+		</div>
+	</section>
+	
+		
+		<!--  Elements section -->
+		<section class="elements-section">
+			<div id="app" >
+				<div class="container">
+					<div class="row">
+						<div class="col-sm">
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">
+								  <span class="input-group-text" id="basic-addon1">Estudio</span>
+								</div>
+								<input type="text" v-model="inputFindModel" class="form-control" aria-label="estudio" aria-describedby="basic-addon1">
+							  </div>
+						</div>
+						<div class="col-sm">
+							<button type="button" class="btn btn-primary" v-on:click="findindStudye()">Buscar</button>
+						</div>
+						<div class="col-sm">
+							<img src="./img/shoppingCar.png" >
+							{{totalStudies}} Estudios, Total $ {{totalShopping}}
+							<img src="./img/email32.png" 
+								 v-if="shoppingCar.length > 0" 
+								 data-toggle="modal" data-target="#modalCotizacion">
+						</div>
+					  </div>
+				</div>
+
+				<div id="ResulsetTable" v-if="resulsetFin.length == 0">
+					 <!--study-template v-for="(study, index) in resulsetFin" v-bind:study="study" v-bind:key="index"/-->
+					 <div class="container">
+						 <div v-if="banFindResult == 0">
+							 <p> Para conocer los precios, primero escribe el estudio o paquetes que deseas realizarte y acontinuacion se mostrara los precios con indicaciones,
+								  y tambien podras enviar tu cotizacion al correo	 
+							<br>
+							<br> Nuestros estudios cuentan con las certificaciones y acreditaciones que nos hacen tener los estándares más altos a nivel mundial,
+								  todos ellos realizados por médicos altamente capacitados en cada una de las especialidades; además, contamos con la tecnología
+								   de vanguardia que requiere el diagnóstico de tu salud.
+								   <br>
+								   <br>
+								   ¡ Recuerda que personas de 3era Edad tiene un 10% de Descuento ! </p>
+
+						 </div>
+						 <div v-if="banFindResult == 1">
+							 <h1>No se encontraron resultados...!</h1>
+						 </div>
+					 </div>
+				</div>
+				<div class="container">
+					<div class="card-columns">
+						<study-template v-for="(study, index) in resulsetFin" 
+										v-bind:study="study" 
+										v-on:additemtoshpcar="addStudyInShoppingcard" 
+										v-bind:key="index">
+						</study-template>
+				    </div>
+				</div>
+
+
+				<div class="modal fade" id="modalCotizacion">
+					<div class="modal-dialog modal-dialog-scrollable modal-lg">
+					  <div class="modal-content">
+					  
+						<!-- Modal Header -->
+						<div class="modal-header">
+						  <h4 class="modal-title">Estudios a cotizar</h4>
+						  <button type="button" class="close" data-dismiss="modal">×</button>
+						</div>
+						
+						<!-- Modal body -->
+						<div class="modal-body">
+							<div class="container">
+								<div class="row">
+									<div class="col-sm">
+										<div class="input-group mb-3">
+											<div class="input-group-prepend">
+											  <span class="input-group-text" id="basic-addon1">Email</span>
+											</div>
+											<input type="text" v-model="emailSendModel" class="form-control" aria-label="email" aria-describedby="basic-addon1">
+										  </div>
+									</div>
+									<div class="col-sm">
+										<button type="button" class="btn btn-primary" v-on:click="sendStudiesToEmail()">Enviar</button>
+									</div>
+									<div class="col-sm">
+										<img src="./img/shoppingCar.png" >
+										{{totalStudies}} Estudios, Total $ {{totalShopping}}
+									</div>
+								  </div>
+							</div>
+							<div class="table-responsive">
+								<table class="table table-striped">
+									<thead>
+									<tr>
+										<th>Estudio</th>
+										<th>Cantidad</th>										
+										<th>Total</th>
+										<th>Eliminar</th>
+									</tr>
+									</thead>
+									<tbody>
+									<tr v-for="(study,index) in shoppingCar">
+										<td>{{study.estudio}}</td>
+										<td>
+											<img src="./img/add.png" v-on:click="addCountStudy(study.estudio)">
+											{{study.cantidad}}
+											<img src="./img/minus.png" v-on:click="delCountStudy(study.estudio)">
+										</td>
+										<td>${{study.price }}</td>
+										<td><img src="./img/del32.png" v-on:click="deleteEstudio(study.estudio)"></td>
+									</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>						
+						<!-- Modal footer -->
+						<div class="modal-footer">
+						  <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+						</div>
+						
+					  </div>
+					</div>
+				</div>
+
+				<div class="modal fade" id="confirmationsModalDel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal-dialog" role="document">
+					  <div class="modal-content">
+						<div class="modal-header">
+						  <h5 class="modal-title" id="exampleModalLabel">Confirmacion</h5>
+						  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						  </button>
+						</div>
+						<div class="modal-body">
+							Estas seguro de elimar el registro completo del estudio?
+						</div>
+						<div class="modal-footer">
+						  <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+						  <button type="button" class="btn btn-primary" v-on:click="deleteStudyAction()">Si</button>
+						</div>
+					  </div>
+					</div>
+				  </div>
+
+
+			</div>
+		</section>
+		<!-- Contact section end -->
+
+
+
+	<!-- Footer section -->
+	<footer class="footer-section">
+		<div class="container">
+						<div class="copyright"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> Laboratorios Viazcan </i> by <a href="#" target="_blank">Viazcan</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
+		</div>
+	</footer>
+	<!-- Footer top section end -->
+                                                
+	<script>
+		
+		Vue.component('study-template',{
+			props:['study'],
+			template:'<div class="card border-primary mb-3"><div class="card-body"><h5 class="card-title">{{study.estudio}}</h5><img class="rounded float-left" :src="getImage(study.image)" alt="Not Found" ><br><p class="card-text h6 text-justify"><br><br><br>{{study.suggestion}}</p></div><div class="card-footer"><div class="row"><div class="col-sm"><p class="h6">Precio: $ {{study.price}}</p></div><div class="col-sm"><button type="button" v-on:click="sendItemIntoShopingCar()" class="btn btn-success">Agregar</button></div></div></div></div>',
+			methods:{
+				getImage: function(name){
+					return './img/studies/'+name;
+				},
+				sendItemIntoShopingCar:function(){
+					this.$emit('additemtoshpcar',this.study);
+				}
+			}
+		})
+
+		var app = new Vue({ 
+			el: '#app', 
+			data: { 
+				resulsetFin:[],
+				shoppingCar:[],
+				inputFindModel:'',
+				emailSendModel:'',
+				studyNameDelete:'',
+				banFindResult:0,
+				totalStudies:0,
+				totalShopping:0
+			},
+			computed:{},
+			methods:{
+				findindStudye: function(){
+					this.gettingData();
+					this.banFindResult = 1;
+					/*
+					axios.get('https://jsonplaceholder.typicode.com/todos/1').then(resp => {
+						console.log(resp)
+					}).catch(err=>{
+						console.log(err)
+					})*/
+				},
+				gettingData:function (){
+					if(this.inputFindModel === ''){
+						alert('captura el estudio a buscar..')
+					}else{
+						this.resulsetFin = globalEtudies.filter ( itemGS =>{ return itemGS.estudio.toLowerCase().includes(this.inputFindModel.toLowerCase()); }  );
+						this.inputFindModel = '';
+					}					
+				},
+				addStudyInShoppingcard:function(studyAdd){
+					const reducer = (accumulator, currentValue) => accumulator + currentValue.cantidad;
+					var found = (this.shoppingCar.filter(function(item){ 
+						ban = false;
+						if(item.estudio===studyAdd.estudio){
+							ban = true;
+							item.cantidad += 1;
+						}
+						return ban;
+					})).length;
+					if( found == 0){
+						studyAdd.cantidad = 1;
+						this.shoppingCar.push(studyAdd);
+					}
+					this.totalStudies = this.shoppingCar.reduce(reducer,0)
+					this.totalShopping+=studyAdd.price;				
+				},
+				sendStudiesToEmail: function(){
+					var dataSend = { email: this.emailSendModel, estudies: this.shoppingCar };
+					axios.post('emailSend.php',dataSend).then(resp => {
+						this.restoreData();
+					}).catch(err=>{
+						this.restoreData();
+					});
+				},
+				deleteEstudio:function(name){
+					this.studyNameDelete = name;
+					console.log("erase stude name modal "+name)
+					$('#confirmationsModalDel').modal('show');
+
+				},
+				deleteStudyAction: function(){
+					var tmpname = this.studyNameDelete;
+					console.log("eliminaco estudio : "+tmpname);
+					this.shoppingCar = this.shoppingCar.filter( function(item ){ return item.estudio !== tmpname ;});
+					this.calculeTotalShppingCar();
+					this.studyNameDelete = '';
+					$('#confirmationsModalDel').modal('hide');
+
+				},
+				addCountStudy: function(studyNameParam){
+					this.shoppingCar.forEach(element => {
+						if(element.estudio === studyNameParam){
+							element.cantidad+=1;
+						}					
+					});
+					this.calculeTotalShppingCar();
+
+				},
+				delCountStudy: function(studyNameParam){
+					this.shoppingCar.forEach(element => {
+						if(element.estudio === studyNameParam && element.cantidad > 1){
+							element.cantidad-=1;
+						}						
+					});
+					this.calculeTotalShppingCar();
+				},
+				restoreData:function(){
+					this.resulsetFin=[];
+					this.shoppingCar=[];
+					this.inputFindModel='';
+					this.emailSendModel='';
+					this.totalShopping=0;
+					this.totalStudies=0;
+					this.banFindResult=0;
+					$("#modalCotizacion").modal("hide")
+				},
+				calculeTotalShppingCar:function(){
+					const reducertotalstudies = (accumulator, currentValue) => accumulator + currentValue.cantidad;
+					const reducerTotalcost = (accumulator, currentValue) => accumulator + (currentValue.cantidad * currentValue.price);
+					this.totalStudies = this.shoppingCar.reduce(reducertotalstudies,0)
+					this.totalShopping = this.shoppingCar.reduce(reducerTotalcost,0);	
+				}
+			}
+		});
+		var globalEtudies = [
+				{ estudio: "Baciloscopia 1 Muestra",suggestion: " Traer la primera expectoración (flema no saliva) de la mañana, no recolectarla en el laboratorio", image:"viaz.png", price:200},
+				{ estudio: "Baciloscopia 5 Muestras",suggestion: " Traer la primera expectoración (flema no saliva) de la mañana, no recolectarla en el laboratorio", image:"3.jpg", price:800},
+				{ estudio: "Baciloscopia 3 Muestras",suggestion: " Traer la primera expectoración (flema no Saliva) de la mañana, no recolectarla en el laboratorio", image:"3.jpg", price:550},
+				{ estudio: "CULTIVO DE EXPECTORACION",suggestion: " RECOLECTAR LA PRIMERA FLEMA EN FRASCO ESTERIL.NO ESTAR TOMANDO ANTIBIOTICOS 7 DESPUES DEL TRATAMIENTO", image:"3.jpg", price:340},
+				{ estudio: "CULTIVO CERVICO-VAGINAL",suggestion: " PRESENTARSE CON PREVIO ASEO GENITAL.TRES DÍAS DE ABSTINENCIA SEXUAL.NO DEBE ESTAR USANDO POMADAS, ÓVULOS, O DUCHAS VAGINALES.NO ORINAR 3 HORAS ANTES DE LA TOMA DE MUESTRA.EN CASO DE ESTAR MENSTRUANDO, DEBE PRESENTARSE DE 6 A 8 DÍAS DESPUÉS DE FINALIZAR.EN CASO DE ESTAR EN TRATAMIENTO CON ANTIBIÓTICOS, DEBE TERMINARLO Y PRESENTARSE 7 DÍAS DESPUÉS PARA EL ESTUDIO. ", image:"3.jpg", price:340},
+				{ estudio: "CULTIVO FARINGEO",suggestion: " PRESENTARSE EN AYUNO.SIN ASEO BUCAL.EN CASO DE ESTAR EN TRATAMIENTO CON ANTIBIÓTICOS, DEBE TERMINARLO Y PRESENTARSE 7 DÍAS DESPUÉS PARA EL ESTUDIO", image:"3.jpg", price:360},
+				{ estudio: "CULTIVO  URETRAL",suggestion: " PRESENTARSE CON PREVIO ASEO GENITAL.TRES DÍAS DE ABSTINENCIA SEXUAL.NO ORINAR 3 HORAS ANTES DE LA TOMA DE MUESTRA.EN CASO DE ESTAR EN TRATAMIENTO CON ANTIBIÓTICOS, DEBE TERMINARLO Y PRESENTARSE 7 DÍAS DESPUÉS PARA EL ESTUDIO.", image:"3.jpg", price:360},
+				{ estudio: "Cultivo De Heces",suggestion: " No ingerir antibióticos 7 dIas antes del estudio. Muestra del tamaño de una nuez.", image:"3.jpg", price:340},
+				{ estudio: "Cultivo De Herida",suggestion: " No ingerir antibióticos, ni aplicarse pomadas ni medicamentos en el área afectada.", image:"3.jpg", price:340},
+				{ estudio: "CULTIVO DE ORINA (UROCULTIVO)",suggestion: " RECOLECTAR PRIMERA ORINA DE LA MAÑANA, HACER UN ASEO PREVIO EN LOS GENITALES, DEJAR CAER EL PRIMER CHORRO RECOLECTAR CHORRO INTERMEDIO, EN FRASCO ESTERIL, QUE NO PASE MAS DE 2 HRS. EN TRAER LA MUESTRA AL LABORATORIO Y NO ESTAR TOMANDO ANTIBIOTICOS,DEJAR PASAR 7 DIAS DESPUES DEL TRATAMIENTO", image:"3.jpg", price:360},
+				{ estudio: "CULTIVO DE SEMEN (ESPERMOCULTIVO)",suggestion: " RECOLECTAR SEMEN POR MASTURBACIÓN EN FRASCO ESTÉRIL. NO REQUIERE ABSTINENCIA SEXUAL. NO TOMAR ANTIBIÓTICOS 6 DIAS ANTES DE REALIZA SU ESTUDIO.", image:"3.jpg", price:340},
+				{ estudio: "Cultivo De Exudado Nasal",suggestion: " No tomar antibióticos antes del estudio", image:"3.jpg", price:340},
+				{ estudio: "Cultivo Nasofaringeo",suggestion: " Ayuno de 8 horas sin aseo bucal ni tomar agua no estar tomando antibióticos 6 dIas antes de la toma", image:"3.jpg", price:340},
+				{ estudio: "Hemocultivo",suggestion: " Ayuno 4 horas, toma de muestra sanguInea", image:"3.jpg", price:605},
+				{ estudio: "Hidroxi Corticosteroides En Orina",suggestion: " El primer dIa de la recolección desechar la primera muestra de la mañana y anotar la hora. Recolectar toda la orina del dIa y si orina durante la noche también deberá recolectarse. El segundo dIa deberá recolectar la primera orina de la mañana para completar las 24 horas.", image:"3.jpg", price:400},
+				{ estudio: "Alfa Hidroxiprogesterona En Suero",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:400},
+				{ estudio: "Cetosteroides En Orina",suggestion: " El primer dIa de recolección desechar la primera muestra de la mañana y anotar la hora. Recolectar toda la orina del dIa y si orina durante la noche también deberá recolectarse. El segundo dIa deberá recolectar la primera orina de la mañana para completar las 24 horas.", image:"3.jpg", price:400},
+				{ estudio: "Ac. Anti Beta 2 Glicoproteina (Iga, Igg, Igm)",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:2240},
+				{ estudio: "Ac. Anti Bordetella Pertusis (Iga, Igg, Igm)",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:750},
+				{ estudio: "Ac. Anti Cardiolipinas Iga",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:375},
+				{ estudio: "Ac. Anti Cardiolipinas Igg",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:375},
+				{ estudio: "Ac. Anti Cardiolipinas Igm",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:375},
+				{ estudio: "Ac. Anti Chlamydia Trachomatis Iga",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:375},
+				{ estudio: "Ac. Anti Chlamydia Trachomatis Igg",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:375},
+				{ estudio: "Ac. Anti Chlamydia Trachomatis Igm",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:375},
+				{ estudio: "Ac. Anti Citomegalovirus Igg",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:375},
+				{ estudio: "Ac. Anti Citomegalovirus Igm",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:375},
+				{ estudio: "ANTICUERPOS ANTI DENGUE IGG/IGM Y ANTIGENO NS1",suggestion: " AYUNO DE 4 A 8 HORAS", image:"3.jpg", price:680},
+				{ estudio: "Ac. Anti Dna Doble Cadena",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:400},
+				{ estudio: "Ac. Anti Epstein Barr Igg (Capside)",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:400},
+				{ estudio: "Ac. Anti Epstein Barr Igm (Capside)",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:400},
+				{ estudio: "Ac. Anti Epstein Barr Igg",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:450},
+				{ estudio: "Ac. Anti Fosfolipidos Igg-Igm",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:900},
+				{ estudio: "Ac. Anti Fosfolipidos Igm",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:450},
+				{ estudio: "Ac. Anti Helicobacter Pylori Igg",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:530},
+				{ estudio: "Ac. Anti Helicobacter Pylori Igm",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:530},
+				{ estudio: "Ac. Anti Herpes Ii Igm (Hsv2Igm)",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:360},
+				{ estudio: "Ac. Anti Herpes I Igg",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:360},
+				{ estudio: "Ac. Anti Herpes I Igg, Igm",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:720},
+				{ estudio: "Ac. Anti Herpes I Igm",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:360},
+				{ estudio: "Ac. Anti Herpes I Y Ii Igg, Igm",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:1440},
+				{ estudio: "Ac. Anti Herpes Ii Igg (Hsv2Igg)",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:360},
+				{ estudio: "Ac. Anti Herpes Ii Igg-Igm",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:730},
+				{ estudio: "Ac. Anti Mycobacterium Tuberculosis",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:400},
+				{ estudio: "Ac. Anti Nucleares (Ana)",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:360},
+				{ estudio: "Ac. Anti Rubeola Igg",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:350},
+				{ estudio: "Ac. Anti Toxoplasma Gondii Igg",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:250},
+				{ estudio: "Ac. Anti Toxoplasma Gondii Igm",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:250},
+				{ estudio: "Ac. Anti Zika Igg-Igm",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:2350},
+				{ estudio: "Ac. Anti-Ccp ( Péptido CIclico Citrulinado )",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:800},
+				{ estudio: "Ac. Anti-Centrómero",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:400},
+				{ estudio: "Ac. Anti-Citoplasma De Neutrófilos Citoplasmáticos ( C- Anca )",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:450},
+				{ estudio: "Ac. Anti-Citoplasma De Neutrófilos Perinucleares ( P-Anca )",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:450},
+				{ estudio: "Ac. Anti-Insulina",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:450},
+				{ estudio: "Ac. Anti-Leptospira",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:2450},
+				{ estudio: "Ac. Anti-Microsomales (Peroxidasa)",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:400},
+				{ estudio: "Ac. Anti-Mitocondriales",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:400},
+				{ estudio: "Ac. Anti-Musculo Liso",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:400},
+				{ estudio: "Ac. Anti-Smith",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:400},
+				{ estudio: "Ac. Anti-Ssa (Ro)",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:400},
+				{ estudio: "Ac. Anti-Ssb (La)",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:400},
+				{ estudio: "Ac. Anti-Transglutaminasa Iga E Igg",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:1100},
+				{ estudio: "Ac. Antiribonucleproteinas ( Rnp )",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:560},
+				{ estudio: "Ac. Antitreponema Pallidum (Elisa)",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:350},
+				{ estudio: "Ac. Antitreponema Pallidum (Fta-Abs)",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:550},
+				{ estudio: "Ac. Antivaricela Igg",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:365},
+				{ estudio: "Ac. Antivaricela Igg E Igm",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:750},
+				{ estudio: "Ac. Antivaricela Igm",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:400},
+				{ estudio: "Ac.Anti Ameba (Serameba)",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:220},
+				{ estudio: "Acido Folico",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:270},
+				{ estudio: "Acido Urico",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:90},
+				{ estudio: "Acido Urico Total En Orina De 24 Horas",suggestion: " El primer dIa de la recolección desechar la primera muestra de la mañana y anotar la hora. Recolectar toda la orina del dIa y si orina durante la noche también deberá recolectarse. El segundo dIa deberá recolectar la primera orina de la mañana para completar las 24 horas.", image:"3.jpg", price:100},
+				{ estudio: "Acido Valproico",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:350},
+				{ estudio: "Ácido Vanilmandélico En Orina 24 Horas",suggestion: " No ingerir café, chocolate, vainilla, piña, plátano al menos 24 horas antes de comenzar la recolección de la orina. El primer dIa de la recolección desechar la primera muestra de la mañana y anotar la hora. Recolectar toda la orina del dIa y si orina durante la noche también deberá recolectarse. El segundo dIa deberá recolectar la primera orina de la mañana para completar las 24 horas.", image:"3.jpg", price:400},
+				{ estudio: "Albumina En Orina De 24 Hrs",suggestion: " Recolectar de orina de 24 hrs, usando un recipiente grande y limpio, deshechar la primera orina de la mañana, anotar la hora de la secolección de la segunda orina del dïa, a partir de ahi recolectar toda la orina del dia y de la noche hasta acompletar las 24 horas", image:"3.jpg", price:400},
+				{ estudio: "Albumina Sérica",suggestion: " Ayuno de 8 hrs mInimo, máximo  12 hrs", image:"3.jpg", price:100},
+				{ estudio: "Alcohol En Orina",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:300},
+				{ estudio: "Alcohol Sérico",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:300},
+				{ estudio: "Aldolasa",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:300},
+				{ estudio: "Aldosterona En Suero",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:300},
+				{ estudio: "Alfa 1 Antitripsina",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:320},
+				{ estudio: "AlfafetoproteIna (Afp)",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:350},
+				{ estudio: "Amiba En Fresco",suggestion: " Heces recientes de no mas de 30 minutos, en caso de niños toma directa en el laboratorio", image:"3.jpg", price:95},
+				{ estudio: "Amilasa Serica",suggestion: " Ayuno de 8 hrs mInimo, máximo  12 hrs", image:"3.jpg", price:250},
+				{ estudio: "Amilasa En Orina De 24 Horas",suggestion: " Recolectar de orina de 24 hrs, usando un recipiente grande y limpio, deshechar la primera orina de la mañana, anotar la hora de la secoleccion de la segunda orina del dïa, a partir de ahi recolectar toda la orina del dia y de la noche hasta acompletar las 24 horas", image:"3.jpg", price:174},
+				{ estudio: "Amilasa Y Lipasa En Suero",suggestion: " Ayuno de 8 hrs mInimo, máximo  12 hrs", image:"3.jpg", price:450},
+				{ estudio: "Amonio",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:300},
+				{ estudio: "Androstenediona",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:350},
+				{ estudio: "AnfetamInas",suggestion: " Si el paciente es mayor de edad presentar identificación oficial; caso contrario deberá presentarse con su tutor acreditando el parentesco.", image:"3.jpg", price:100},
+				{ estudio: "Anticoagulante Lúpico",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:650},
+				{ estudio: "Anticuerpos Anti-Cisticerco",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:350},
+				{ estudio: "Anticuerpos Anti-Jo",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:400},
+				{ estudio: "Antiestreptolisinas (Aso O Aslo)",suggestion: " Ayuno de 8 hrs mInimo, máximo  12 hrs", image:"3.jpg", price:280},
+				{ estudio: "Antigeno Ca 15-3 (Cancer De Mama)",suggestion: " Ayuno de 8 hrs mInimo, máximo  12 hrs", image:"3.jpg", price:700},
+				{ estudio: "Antigeno Ca 19-9 (Colon)",suggestion: " Ayuno de 8 hrs mInimo, máximo  12 hrs", image:"3.jpg", price:500},
+				{ estudio: "Antigeno Ca-125 (Ovario)",suggestion: " Ayuno de 8 hrs mInimo, máximo  12 hrs", image:"3.jpg", price:500},
+				{ estudio: "Antigeno Carcinoembrionario (Cea)",suggestion: " Ayuno de 8 hrs mInimo, máximo 12 hrs", image:"3.jpg", price:430},
+				{ estudio: "Antigeno Prostatico EspecIfico Total Y Libre",suggestion: " Ayuno de 8 hrs mInimo, máximo 12 hrs, 2 dIas de abstinencia sexual", image:"3.jpg", price:800},
+				{ estudio: "Antigeno Prostatico Libre",suggestion: " Ayuno de 8 hrs mInimo, máximo 12 hrs, 2 dIas de abstinencia sexual", image:"3.jpg", price:440},
+				{ estudio: "Antigeno Prostatico Total (Psa)",suggestion: " Ayuno de 8 hrs mInimo, máximo  12 hrs", image:"3.jpg", price:440},
+				{ estudio: "Atm (Articulación Temporal Mandibular)",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:550},
+				{ estudio: "Azucares Reductores",suggestion: " Traer la muestra a laboratorio en un lapso menor a 1 hora. Tamaño de una nuez.", image:"3.jpg", price:240},
+				{ estudio: "Baar Muestra Unica",suggestion: " Traer la primera expectoración de la mañana (Flema; No Saliva). No recolectar en el Laboratorio.", image:"3.jpg", price:200},
+				{ estudio: "Baar Seriado 3 Muestras",suggestion: " Traer la primera expectoración de la mañana por 3 dIas consecutivos (Flema; No Saliva). No recolectar en el Laboratorio.", image:"3.jpg", price:550},
+				{ estudio: "Baar Seriado 3 Muestras En Orina",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:550},
+				{ estudio: "Benzodiazepinas",suggestion: " Si el paciente es mayor de edad presentar identificación oficial; caso contrario deberá presentarse con su tutor acreditando el parentesco.", image:"3.jpg", price:100},
+				{ estudio: "Beta 2 Microglobulina En Suero",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:450},
+				{ estudio: "Bilirrubinas",suggestion: " Ayuno de 8 hrs mInimo, máximo  12 hrs, neonatos de 2 hrs o antes de su alimentación", image:"3.jpg", price:180},
+				{ estudio: "BIOMETRIA HEMATICA",suggestion: " AYUNO MINIMO DE 4 A 6 HORAS", image:"3.jpg", price:100},
+				{ estudio: "BIOPSIA CHICA",suggestion: " El paciente deberá presentar su orden MEDICA.", image:"3.jpg", price:1700},
+				{ estudio: "BIOPSIA GRANDE",suggestion: " El paciente deberá presentar su orden MEDICA.", image:"3.jpg", price:2600},
+				{ estudio: "Brucella Abortus Por Rosa De Bengala",suggestion: " Ayuno de 8 hrs mInimo, máximo  10 hrs", image:"3.jpg", price:471},
+				{ estudio: "Ca 27-29 (Ca De Mama)",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:1100},
+				{ estudio: "Ca 72-4 ( Estómago E Intestinos )",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:850},
+				{ estudio: "Calcio En Suero",suggestion: " Ayuno de 8 hrs mInimo, máximo 10 hrs no haber tomado gatorade o sueros hidratantes un dia antes del estudio", image:"3.jpg", price:140},
+				{ estudio: "Calcio Total En Orina De 24 Horas",suggestion: " Recolectar la orina de 24 hrs, la primera se deshecha, posteriormente se recolecta toda la orina que haga durante el dia y si se levanta por la noche. Tambien se recolecta la primera del dia siguiente", image:"3.jpg", price:175},
+				{ estudio: "Capacidad De Fijacion De Hierro Serico Total",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:200},
+				{ estudio: "Carbamazepina (Tegretol)",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:400},
+				{ estudio: "Catecolaminas Totales Orina 24 Hrs.",suggestion: " No ingerir aguacate, plátano, café, ciruela, piña, tomate, papaya, nuez y vainilla, aspirina, corticotropina, reserpina, nicotina, vitamina b, alfa-metIl-dopamIna. inhibidores de mao y de la comt.", image:"3.jpg", price:480},
+				{ estudio: "Cefalometria",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:380},
+				{ estudio: "Celulas L.E.",suggestion: " Ayuno mInimo 4 hrs", image:"3.jpg", price:160},
+				{ estudio: "Cistografia Miccional Con Contraste",suggestion: " Estudio con previa cita aplicar lacxante fleet, la mitad a las 10:00 pm y la otra mitad a las 6:00 am del dia del estudio", image:"3.jpg", price:2450},
+				{ estudio: "Citologia De Moco Fecal",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:175},
+				{ estudio: "Ck Mb",suggestion: " Ayuno de 8 horas", image:"3.jpg", price:230},
+				{ estudio: "Cloro",suggestion: " No tomar Gatorade o Suero al menos 36 horas antes de la toma de muestras.", image:"3.jpg", price:140},
+				{ estudio: "Clostridium Difficile (Toxinas A Y B)",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:1300},
+				{ estudio: "Colesterol Total",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:90},
+				{ estudio: "Colinesterasa",suggestion: " Ayuno de 8 a 12 horas", image:"3.jpg", price:300},
+				{ estudio: "Colinesterasa Eritrocitaria",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:950},
+				{ estudio: "Colposcopia",suggestion: " 3 dIas de abstinencia sexual, no estar sangrando, no usar cremas, ovulos o ducha vaginal, aseo diario normal. 5 a 6 dias de haber terminado su mestruación", image:"3.jpg", price:550},
+				{ estudio: "Complemento C-3",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:350},
+				{ estudio: "Complemento C-4",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:350},
+				{ estudio: "Coombs Directo",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:200},
+				{ estudio: "Coprológico",suggestion: " Muestra de Excremento del tamaño de una nuez, en un frasco limpio evitar la contaminacion con la orina", image:"3.jpg", price:250},
+				{ estudio: "Coproparasitoscopico 1 Muestra",suggestion: " Muestra de Excremento del tamaño de una nuez, en un frasco limpio evitar la contaminacion con la orina", image:"3.jpg", price:70},
+				{ estudio: "Coproparasitoscopico 2 Muestras",suggestion: " Muestra de excremento del tamaño de una nuez, en un frasco limpio evitar la contaminacion con la orina recolectar la muestra durante 2 dias", image:"3.jpg", price:180},
+				{ estudio: "Coproparasitoscopico 3 Muestras",suggestion: " Muestra de excremento del tamaño de una nuez, en un frasco limpio evitar la contaminacion con la orina recolectar la muestra durante 2 dias", image:"3.jpg", price:265},
+				{ estudio: "Cortisol",suggestion: " Ayuno de 8 a 12 horas.", image:"3.jpg", price:350},
+				{ estudio: "Cortisol Matutino",suggestion: " Toma de muestra de 6:30 am a 9:00 am únicamente.", image:"3.jpg", price:350},
+				{ estudio: "Creatin Kinasa (Ck-Mb) (Cpk-Mb)",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:230},
+				{ estudio: "Creatina Kinasa (Cpk)",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:230},
+				{ estudio: "Creatinina Sérica",suggestion: " Ayuno de 8 hrs mInimo, máximo  12 hrs", image:"3.jpg", price:90},
+				{ estudio: "Creatinina En Orina De 24 Horas",suggestion: " Recolectar de orina de 24 hrs, usando un recipiente grande y limpio, deshechar la primera orina de la mañana, anotar la hora de la recoleccion de la segunda orina del dïa, a partir de ahi recolectar toda la orina del dia y de la noche hasta acompletar las 24 horas", image:"3.jpg", price:180},
+				{ estudio: "Creantinfosfoquinasa(Cpk)",suggestion: " Ayuno de 8 hrs mInimo, máximo  12 hrs", image:"3.jpg", price:270},
+				{ estudio: "Creantinfosfoquinasafracción Mb",suggestion: " Ayuno de 8 hrs mInimo, máximo  12 hrs", image:"3.jpg", price:270},
+				{ estudio: "CristalografIa",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:160},
+				{ estudio: "Cultivo De Hongos",suggestion: " No ingerir ni aplicar antimicóticos al menos 7 dIas antes de la toma de muestra.", image:"3.jpg", price:450},
+				{ estudio: "Cultivo Microbiologico De Manos",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:340},
+				{ estudio: "Cultivo Vaginal Con Chlamydia",suggestion: " Abstinencia sexual de 3 dIas. No aplicar 7 dIas antes del estudio cremas, óvulos, duchas vaginales, antibióticos ni antimicóticos.", image:"3.jpg", price:2100},
+				{ estudio: "Curva De Tolerancia A La Glucosa 2 Hrs",suggestion: " Disponibilidad de tiempo para permanecer al menos 4 horas en el Laboratorio.", image:"3.jpg", price:460},
+				{ estudio: "Curva De Tolerancia A La Glucosa 3 Hrs",suggestion: " Disponibilidad de tiempo para permanecer al menos 5 horas en el Laboratorio.", image:"3.jpg", price:550},
+				{ estudio: "Curva De Tolerancia A La Glucosa De 2 Horas Con Insulinas",suggestion: " Ayuno de 8 a 12 horas", image:"3.jpg", price:1900},
+				{ estudio: "Dehidroepiandrosterona ( Dhea )",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:350},
+				{ estudio: "Dehidroepiandrosterona Sulfato (Dhea-S)",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:350},
+				{ estudio: "Depuracion De Creatinina",suggestion: " Ayuno de 8 hrs mInimo, máximo  12 hrs, recolección de orina de 24 horas usando un recipiente grande y limpio, desechar la primera de la mañana, anotar la hora y a partir de ese momento recolectar toda la orina del dIa y de la noche, hasta completar las 24 horas.recolectar la primera orina del dia siguiente", image:"3.jpg", price:270},
+				{ estudio: "Deshidrogenasa Lactica (Dhl)",suggestion: " Ayuno de 8 hrs mInimo, máximo  12 hrs", image:"3.jpg", price:170},
+				{ estudio: "Detección AntIgeno Hla B-27",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:1000},
+				{ estudio: "Digoxina",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:400},
+				{ estudio: "Dimero D",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:490},
+				{ estudio: "Dopamina",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:450},
+				{ estudio: "Electroforesis De Lipo-ProteInas",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:360},
+				{ estudio: "Electroforesis De ProteInas",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:450},
+				{ estudio: "Electrolitos Sericos 3 (Ca/ P/ Mg)",suggestion: " No tomar Gatorade o Suero Hidratantes al menos 36 horas antes de la toma de muestras", image:"3.jpg", price:400},
+				{ estudio: "Electrolitos Sericos 3 (Na/ K/ Cl)",suggestion: " Ayuno de 8 hrs minimo, maximo 10 hrs haber tomado gatorade o sueros hidratantes", image:"3.jpg", price:260},
+				{ estudio: "ENZIMAS CARDIACAS (CK, CKMB,TGO,LDH)",suggestion: " AYUNO DE 8 A 12 HRS, NO EXCEDER", image:"3.jpg", price:750},
+				{ estudio: "Eosinofilos En Moco Nasal 1 Muestra",suggestion: " Sin aseo nasal previo a la toma, deseable hasta las 10 a.m. ", image:"3.jpg", price:100},
+				{ estudio: "Eosinofilo En Moco Nasal 3 Muestras",suggestion: " Sin aseo nasal previo a la toma, deseable hasta las 10 a.m.", image:"3.jpg", price:290},
+				{ estudio: "Eosinófilos En Moco Nasal Seriado",suggestion: " Toma de muestras de 6:30 am. a 9:00 am. Acudir por 3 dIas consecutivos. Sin aseo nasal previo a la toma. No aplicar medicamentos en las fosas nasales al menos 24 horas antes de la toma de muestras.", image:"3.jpg", price:290},
+				{ estudio: "Eritropoyetina",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:1000},
+				{ estudio: "Espermatobioscopia",suggestion: " Realizar aseo diario normal antes de recolectar la muestra. Abstinencia sexual de 2 a 7 dIas, anotar hora de recolección, método de recolección por masturbación, en un frasco estéril. Recepción de muestras de 7:00 am a 10:00 am  hrs. Solo se realizan de lunes a viernes", image:"3.jpg", price:480},
+				{ estudio: "ESTRADIOL EN SUERO",suggestion: " AYUNO DE 8 A 12 HORAS, NO EXCEDER", image:"3.jpg", price:380},
+				{ estudio: "Estrogenos Totales",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:265},
+				{ estudio: "EXAMEN GENERAL DE ORINA (EGO)",suggestion: " RECOLECTAR LA PRIMERA ORINA DE LA MAÑANA, ASEO PREVIO EN GENITALES EMPEZAR A ORINAR, DEJAR CAER UN POCO Y RECOLECTAR CHORRO INTERMEDIO TAMBIEN SE PUEDE RECOLECTAR LA 2 ORINA DEL DIA QUE PASEN 3 HORAS DE NO HABER ORINADO *NO SE RECIBIRÁN MUESTRAS EN FRASCOS DE MAYONESA, CAFÉ U OTROS QUE NO SEAN PROPORCIONADOS POR EL LABORATORIO O CONSEGUIR EN FARMACIAS", image:"3.jpg", price:50},
+				{ estudio: "EXAMEN GENERAL DE ORINA CON MICROALBUMINURIA",suggestion: " RECOLECTAR LA PRIMERA ORINA DE LA MAÑANA, ASEO PREVIO EN GENITALES EMPEZAR A ORINAR, DEJAR CAER UN POCO Y RECOLECTAR CHORRO INTERMEDIO TAMBIEN SE PUEDE RECOLECTAR LA 2 ORINA DEL DIA QUE PASEN 3 HORAS DE NO HABER ORINADO *NO SE RECIBIRÁN MUESTRAS EN FRASCOS DE MAYONESA, CAFÉ U OTROS QUE NO SEAN PROPORCIONADOS POR EL LABORATORIO O CONSEGUIR EN FARMACIAS.", image:"3.jpg", price:480},
+				{ estudio: "Examen QuImico De Cálculo Renal",suggestion: " Muestra enviada por el médico tratante.", image:"3.jpg", price:300},
+				{ estudio: "Examenes Prenupciales 1",suggestion: " Ayuno de 8 hrs mInimo, máximo  10 hrs", image:"3.jpg", price:200},
+				{ estudio: "Examenes Prenupciales 2",suggestion: " Ayuno de 8 hrs mInimo, máximo  10 hrs", image:"3.jpg", price:400},
+				{ estudio: "FACTOR REUMATOIDE",suggestion: " AYUNO DE 8 HORAS", image:"3.jpg", price:280},
+				{ estudio: "Fibrinogeno",suggestion: " Ayuno de 8 hrs mInimo, máximo  12 hrs", image:"3.jpg", price:375},
+				{ estudio: "Formula Blanca",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:80},
+				{ estudio: "Formula Roja",suggestion: " Ayuno minimo de 4 horas", image:"3.jpg", price:100},
+				{ estudio: "Fosfatasa Acida (Fac)",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:130},
+				{ estudio: "Fosfatasa Alcalina (Alp)",suggestion: " Ayuno de 8 hrs mInimo, máximo  12 hrs", image:"3.jpg", price:120},
+				{ estudio: "Fosforo Serico",suggestion: " Ayuno de 8 hrs mInimo, máximo 10 hrs. no haber tomado gatorade o sueros hidratantes un dia antes del estudio", image:"3.jpg", price:140},
+				{ estudio: "Fosforo En Orina De 24 Horas",suggestion: " Recolectar la orina de 24 horas, la primera orina se deshecha,posteriormente se recolecta toda la orina que haga durante el dia y noche, tambien se recolecta, la primera del otro dIa", image:"3.jpg", price:175},
+				{ estudio: "Fotografias Intraorales Y Extraorales",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:440},
+				{ estudio: "Fraccion Prostatica Y Fosfatasa Acida",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:270},
+				{ estudio: "Frotis De Sangre Periferica",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:60},
+				{ estudio: "Gammaglutamil Tranferasa (Ggt)",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:120},
+				{ estudio: "Gammaglutamiltranspeptidasa",suggestion: " Ayuno de 8 hrs mInimo, máximo  12 hrs", image:"3.jpg", price:120},
+				{ estudio: "GasometrIa Arterial",suggestion: " Toma de muestra de lunes a viernes de 6:30 am a 4:00 pm; sábados de 6:30 am a 10:00 am únicamente.", image:"3.jpg", price:800},
+				{ estudio: "GasometrIa Venosa",suggestion: " Toma de muestra de lunes a viernes de 6:30 am a 4:00 pm; sábados de 6:30 am a 10:00 am únicamente.", image:"3.jpg", price:800},
+				{ estudio: "Glucosa Serica",suggestion: " Ayuno de 8 hrs mInimo, máximo 10 hrs", image:"3.jpg", price:70},
+				{ estudio: "Gonadotropina Coriónica Humana Cuantitativa (Fracción Beta)",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:440},
+				{ estudio: "Gonadotropina Coriónica Humana Cuantitativa (Hombre)",suggestion: " Ayuno de 8 a 12 horas", image:"3.jpg", price:440},
+				{ estudio: "Gota Gruesa (Busqueda De Plasmodium)",suggestion: " Ayuno mInimo de 3 horas", image:"3.jpg", price:180},
+				{ estudio: "Grupo SanguIneo Y Rh",suggestion: " Ayuno mInimo de 3 horas", image:"3.jpg", price:80},
+				{ estudio: "Helicobacter Pylori En Heces",suggestion: " Tamaño de una nuez", image:"3.jpg", price:400},
+				{ estudio: "Hemoglobina Glucosilada (Hba1C)",suggestion: " ¡No requiere ayuno!", image:"3.jpg", price:340},
+				{ estudio: "Hepatitis A Igg",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:370},
+				{ estudio: "Coprológico",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:250},
+				{ estudio: "Hepatitis A Igm",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:410},
+				{ estudio: "Hepatitis A, B Y C Marcadores",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:1200},
+				{ estudio: "Hepatitis B Ag (Hbs Ag)",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:770},
+				{ estudio: "Hepatitis C",suggestion: " Ayuno de 8 hrs mInimo, máximo  12 hrs", image:"3.jpg", price:400},
+				{ estudio: "Hidroxido De Potasio (Koh)",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:150},
+				{ estudio: "Hierro Serico",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:200},
+				{ estudio: "Histerosalpingografia",suggestion: " Cita previa, no requiere ayuno, una dieta normal evitar grasas, a las 8:00 pm del dIa antes de estudio aplicar vIa rectal frasco completo del lacxante microlax a las 8:00 pm, traer una toalla sanitaria", image:"3.jpg", price:2200},
+				{ estudio: "HIV 1 Y 2",suggestion: " AYUNO DE 8 A 12 HORAS NO EXCEDER", image:"3.jpg", price:360},
+				{ estudio: "Homa (Indice Homa-Ir, Insulina Y Glucosa Basal)",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:500},
+				{ estudio: "HomocisteIna",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:580},
+				{ estudio: "Hormona Adrenocorticotrófica",suggestion: " Toma de muestra de 6:30 am a 9:00 am únicamente. El paciente tiene que estar en reposo 30 minutos antes de la toma, y deberá informar si se encuentra en tratamiento médico.", image:"3.jpg", price:350},
+				{ estudio: "Hormona Estimulante De La Tiroides (Tsh)",suggestion: " Ayuno de 8 hrs mInimo, máximo 10 hrs, para bebes ayuno de 3 horas", image:"3.jpg", price:365},
+				{ estudio: "Hormona Gonadotrofina Coriónica Cuantitativa",suggestion: " Ayuno de 8 hrs mInimo, máximo 12 hrs, es para hombres y mujeres .si la requieren de urgencia se tomaran 4 horas para procesos", image:"3.jpg", price:440},
+				{ estudio: "HORMONA FOLICULO ESTIMULANTE (FSH)",suggestion: "AYUNO DE 8 A 12 HORAS , NO EXCEDER", image:"3.jpg", price:380},
+				{ estudio: "HORMONA LUTEINIZANTE (LH)",suggestion: " AYUNO DE 8 A 12 HORAS LA TOMA SE REALIZA HASTA LAS 10.0 A.M, NO REALIZAR EJERCICIO ANTES DE LA TOMA", image:"3.jpg", price:380},
+				{ estudio: "Hormona Paratiroidea (Paratohormona)",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:600},
+				{ estudio: "Igf Únida A ProteIna 3 (Gfbp-3)",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:1100},
+				{ estudio: "Igf-1 Somatomedina",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:630},
+				{ estudio: "Indice De Tiroxina Libre (Itl)",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:235},
+				{ estudio: "Influenza A, B, Ah1N1",suggestion: " No aplicar medicamentos en las fosas nasales al menos 24 horas antes de la toma de muestras.", image:"3.jpg", price:700},
+				{ estudio: "Inmunoglobulina A ( Iga )",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:320},
+				{ estudio: "Inmunoglobulina E (Ige)",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:375},
+				{ estudio: "Inmunoglobulina G ( Igg )",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:320},
+				{ estudio: "Inmunoglobulina M ( Igm )",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:320},
+				{ estudio: "Indice De Resistencia A La Insulina Homa (Homeostasis Modelassessment)",suggestion: " Ayuno de 8 hrs minimo, maximo 10 hrs", image:"3.jpg", price:500},
+				{ estudio: "Insulina Basal",suggestion: " Ayuno de 8 hrs mInimo, máximo  12 hrs", image:"3.jpg", price:310},
+				{ estudio: "Insulina Posprandial",suggestion: " 2 horas después de comer", image:"3.jpg", price:310},
+				{ estudio: "Lamotrigina (Lamictal)",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:1580},
+				{ estudio: "Lipasa Sérica",suggestion: " Ayuno de 8 hrs mInimo, máximo  12 hrs", image:"3.jpg", price:250},
+				{ estudio: "Lipidos Totales",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:200},
+				{ estudio: "Litio Sérico",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:360},
+				{ estudio: "Magnesio",suggestion: " Ayuno de 8hrs mInimo, máximo  10  hrs. no haber tomado gatorade o sueros hidratantes un dIa antes del estudio", image:"3.jpg", price:140},
+				{ estudio: "Magnesio En Orina",suggestion: " Recolectar la orina de 24 horas, la primera orina se deshecha,posteriormente se recolecta toda la orina que haga durante el dia y la noche hasta  la primera del otro dia", image:"3.jpg", price:175},
+				{ estudio: "Marihuana (Thc)",suggestion: " Si el paciente es mayor de edad presentar identificación oficial; caso contrario deberá presentarse con su tutor acreditando el parentesco.", image:"3.jpg", price:100},
+				{ estudio: "Metanefrinas En Plasma",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:640},
+				{ estudio: "Metanefrinas Totales En Orina De 24 Horas",suggestion: " El primer dIa de la recolección desechar la primera muestra de la mañana y anotar la hora. Recolectar toda la orina del dIa y si orina durante la noche también deberá recolectarse. El segundo dIa deberá recolectar la primera orina de la mañana para completar las 24 horas.", image:"3.jpg", price:640},
+				{ estudio: "MetanfetamInas",suggestion: " Si el paciente es mayor de edad presentar identificación oficial; caso contrario deberá presentarse con su tutor acreditando el parentesco.", image:"3.jpg", price:100},
+				{ estudio: "Modelos En Yeso",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:440},
+				{ estudio: "Nitrogeno De Urea (Bun)",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:80},
+				{ estudio: "Noradrenalina En Plasma",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:906},
+				{ estudio: "FenitoIna",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:500},
+				{ estudio: "Opiaceos",suggestion: " Si el paciente es mayor de edad presentar identificación oficial; caso contrario deberá presentarse con su tutor acreditando el parentesco.", image:"3.jpg", price:100},
+				{ estudio: "Oxcarbazepina (Trileptal)",suggestion: " El paciente deberá informar si se encuentra en tratamiento médico, fecha y hora de última dosis de medicamento ingerido.", image:"3.jpg", price:500},
+				{ estudio: "Oxiuros Prueba De Graham",suggestion: " No bañarse ni pasar al sanitario, la toma se realiza por las mañanas", image:"3.jpg", price:140},
+				{ estudio: "PAPANICOLAOU",suggestion: " TRES DIAS DE ABSTINENCIA SEXUAL, NO ESTAR SANGRANDO, NO USAR CREMAS, OVULOS O DUCHA VAGINAL, ASEO DIARIO NORMAL. TENER 12 A 14 DIAS DE HABER TERMINADO PERIODO MESTRUAL, NO ORINAR 3 HRAS ANTES DEL ESTUDIO", image:"3.jpg", price:250},
+				{ estudio: "Paúl-Bunnel (Mononucleosis Infecciosa)",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:300},
+				{ estudio: "Pcr Para Mycobacterium Tuberculosis",suggestion: " Puede ser tomada en cualquiera de las 3 opciones ( orina, sangre, expectoración) 1.- orina: 1° orina de la mañana 2.-sangre: ayuno de 8 a 10 horas 3.-expectoración: Flema", image:"3.jpg", price:2600},
+				{ estudio: "Pcr-Rt Virus Del Papiloma Humano 28 Genotipos",suggestion: " Abstinencia sexual de 3 dIas(mujeres y hombres). No aplicar 7 dIas antes del estudio cremas, óvulos, duchas vaginales(en caso de mujeres)", image:"3.jpg", price:3500},
+				{ estudio: "Peptido C",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:380},
+				{ estudio: "Peptido Natriurético Cerebral B (Pnb)",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:900},
+				{ estudio: "Perfil De Drogas 4 (Canabinoides, Cocaina, Anfetaminas Y Benzodiacepin)",suggestion: " Si el paciente es mayor de edad presentar identificación oficial; caso contrario deberá presentarse con su tutor acreditando el parentesco.", image:"3.jpg", price:400},
+				{ estudio: "Perfil De Drogas 6 (Metanf, Thc, Coc, Anf, Bzo, Opi)",suggestion: " Si es mayor de edad presentar identificación oficial, si es menor de edad presentarse acompañado de su tutor, la muestra de toma en laboratorio.", image:"3.jpg", price:600},
+				{ estudio: "Perfil De Alergia Alimenticio (40 Elementos)",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:3200},
+				{ estudio: "Perfil De Alergia Inhalatoria (41 Elementos)",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:3200},
+				{ estudio: "Perfil De Catecolaminas En Plasma",suggestion: " ingerir: aspirina, corticotropina, reserpina, nicotina, vitamina b, alfametildopamina. inhibidores de mao y de la comt.", image:"3.jpg", price:480},
+				{ estudio: "Perfil De Drogas (3)",suggestion: " Si el paciente es mayor de edad deberá presentar identificación oficial; caso contrario deberá presentarse con su tutor acreditando el parentesco.", image:"3.jpg", price:300},
+				{ estudio: "Perfil De Drogas Completo (5)",suggestion: " Si el paciente es mayor de edad presentar identificación oficial; caso contrario deberá presentarse con su tutor acreditando el parentesco.", image:"3.jpg", price:500},
+				{ estudio: "Perfil De Hierro",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:450},
+				{ estudio: "Perfil De Hierro + Ferritina",suggestion: " Ayuno de 8 a 12 horas", image:"3.jpg", price:700},
+				{ estudio: "Perfil De Lipidos Basico",suggestion: " Ayuno de 8 hrs mInimo, máximo 12 hrs, para bebes 3 horas de ayuno", image:"Lab.jpg", price:440},
+				{ estudio: "Perfil Hipofisiario",suggestion: " Toma de muestra de 6:30 am a 9:00 am únicamente.", image:"3.jpg", price:1400},
+				{ estudio: "PERFIL TIROIDEO III (TSH, T3T, T3L, T-UP, T4T, T4L, T4 YODO, ITL, I PROTEICO, I BUTANOLICO, TPO, TG)",suggestion: " AYUNO DE 8 A 12 HORAS TOMA DE MUESTRA 7 A 10 A.M NO REALIZAR EJERCICIO ANTES DE LA TOMA DE MUESTRA.", image:"3.jpg", price:1210},
+				{ estudio: "PERFIL TIROIDEO IV (T3 TOTAL, T4 TOTAL, TSH Y T4 LIBRE)",suggestion: " AYUNO MINIMO DE 8 HRS. TOMA DE MUESTRAS DE 6:30 AM A 10:00 AM. NO REALIZAR EJERCICIO ANTES DE LA TOMA.", image:"3.jpg", price:800},
+				{ estudio: "PROGESTERONA",suggestion: " AYUNO DE 8 A 12 HORAS NO REALIZAR EJERCIO ANTES DE LA TOMA,LAS TOMAS SE REALIZAN HAST LAS 10.0 A.M ", image:"3.jpg", price:380},
+				{ estudio: "PROLACTINA",suggestion: " AYUNO DE 8 A 12 HORAS, TOMA DE MUESTRA DE 7 A 10HORAS. NO REALIZAR EJERCICIO ANTES DE LA TOMA.", image:"3.jpg", price:380},
+				{ estudio: "Proteina C Reactiva De Alta Sensibilidad",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:380},
+				{ estudio: "Proteina C Reactiva (Pcr)",suggestion: " Ayuno de 8 a 12 horas, toma de muestra de 7 a 10horas. no realizar ejercicio antes de la toma.", image:"3.jpg", price:280},
+				{ estudio: "Proteinas Totales En Orina De 24 Horas",suggestion: " El primer dIa de la recolección desechar la primera muestra de la mañana y anotar la hora. Recolectar toda la orina del dIa y si orina durante la noche también deberá recolectarse. El segundo dIa deberá recolectar la primera orina de la mañana para completar las 24 horas.", image:"3.jpg", price:170},
+				{ estudio: "ProteInas Totales Y Relación A/G",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:250},
+				{ estudio: "PRUEBA DE EMBARAZO",suggestion: " AYUNO MINIMO DE 2 HORAS, SE REALIZA ANTES DE LAS 2PM", image:"3.jpg", price:60},
+				{ estudio: "PRUEBA DE EMBARAZO (ORINA)",suggestion: " Recolectar la  primera orina de la mañana. aseo diario normal antes de recolectar su muestra", image:"3.jpg", price:100},
+				{ estudio: "Prueba De Paternidad (2 Muestras)",suggestion: " Deberán presentarse ambos padres con identificación oficial con fotografIa y acta de nacimiento u hoja de alumbramiento del menor(original y copia).", image:"3.jpg", price:8300},
+				{ estudio: "Prueba De Paternidad (3 Muestras)",suggestion: " Deberán presentarse ambos padres con identificación oficial con fotografIa y acta de nacimiento u hoja de alumbramiento de los menores (original y copia).", image:"3.jpg", price:10000},
+				{ estudio: "Pruebas De Funcionamiento Hepático",suggestion: " Ayuno de 8 horas", image:"3.jpg", price:370},
+				{ estudio: "Pruebas De Funcionamiento Hepatico Completas (Bt, Bd, Bi, Tgo, Tgp,Ggt, Alp, Pt",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:540},
+				{ estudio: "QUIMICA SANGUINEA 12 ELEMENTOS",suggestion: " AYUNO DE 8 A 10 HORAS NO EXCEDER", image:"3.jpg", price:800},
+				{ estudio: "QUIMICA SANGUINEA 27 ELEMENTOS",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:1870},
+				{ estudio: "QUIMICA SANGUINEA 24 ELEMENTOS",suggestion: " AYUNO DE 8 A 10 HORAS NO EXCEDER", image:"3.jpg", price:1540},
+				{ estudio: "QUIMICA SANGUINEA 4 ELEMENTOS",suggestion: " AYUNO DE 8 A 10 HORAS NO EXCEDER", image:"3.jpg", price:220},
+				{ estudio: "QUIMICA SANGUINEA 5 ELEMENTOS",suggestion: " AYUNO DE 8 A 10 HORAS NO EXCEDER", image:"3.jpg", price:310},
+				{ estudio: "QUIMICA SANGUINEA 6 ELEMENTOS",suggestion: " AYUNO DE 8 A 10 HORAS NO EXCEDER", image:"3.jpg", price:330},
+				{ estudio: "QUIMICA SANGUINEA 7 ELEMENTOS",suggestion: " AYUNO DE 8 A 10 HORAS NO EXCEDER", image:"3.jpg", price:250},
+				{ estudio: "QUIMICA SANGUINEA 33 ELEMENTOS",suggestion: " AYUNO DE 8 A 10 HORAS NO EXCEDER", image:"3.jpg", price:2200},
+				{ estudio: "Reacciones Febriles",suggestion: " Ayuno de 6 hrs mInimo, máximo 8hrs", image:"3.jpg", price:210},
+				{ estudio: "Renina Plasmática",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:400},
+				{ estudio: "Reticulocitos",suggestion: " Ayuno minimo de 4 hrs", image:"3.jpg", price:150},
+				{ estudio: "Rotavirus",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:400},
+				{ estudio: "Rotavirus En Heces 1 Muestra",suggestion: " Heces recientes, sin haber ingerido carnes rojas durante 3 ,ni espinacas, acelgas, rabanos, betabel, ni medicamentos que contengan hierro", image:"3.jpg", price:100},
+				{ estudio: "Sangre Oculta En Heces",suggestion: " No consumir carnes rojas, betabel, acelgas, rábanos, espinacas, ni medicamentos que contengan Hierro 3 dIas antes del estudio.", image:"3.jpg", price:100},
+				{ estudio: "Serie Osea Metastasica",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:2600},
+				{ estudio: "Sodio",suggestion: " No tomar Gatorade o Suero al menos 36 horas antes de la toma de muestras.", image:"3.jpg", price:145},
+				{ estudio: "Subclases Inmunoglobulinas G (1, 2, 3, 4)",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:2105},
+				{ estudio: "Tiroxina Libre (T4 Libre)",suggestion: " Ayuno 8 hrs mInimo, máximo 12 hrs,  para bebes ayuno de 3 horas", image:"3.jpg", price:365},
+				{ estudio: "Tamiz Metabólico Neonatal Ampliado ",suggestion: " Ayuno de 2 horas, la toma de muestra debe ser entre el tercer y sexto dIa de nacido, se puede tomar hasta máximo 1 mes de nacido, si trae consigo solicitud del médico tratante", image:"3.jpg", price:1600},
+				{ estudio: "Tamiz Metabolico Neonatal Basico ",suggestion: " Ayuno de 2 horas, la toma de muestra debe ser entre el tercer y sexto dIa de nacido, se puede tomar hasta máximo 1 mes de nacido, si trae consigo solicitud del médico tratante", image:"3.jpg", price:450},
+				{ estudio: "Test O´ Sullivan (Embarazadas)",suggestion: " Disponibilidad de tiempo para permanecer al menos 3 horas en el Laboratorio.", image:"3.jpg", price:340},
+				{ estudio: "TESTOSTERONA LIBRE",suggestion: " AYUNO DE 8 A 12 HORAS, NO EXCEDER ", image:"3.jpg", price:410},
+				{ estudio: "Tiempo De Coagulación (Tc)",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:80},
+				{ estudio: "Tiempo De Protrombina Con I.N.R.",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:135},
+				{ estudio: "Tiempo De Sangrado (Ts)",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:90},
+				{ estudio: "Tiempo De Trombina ( Tt )",suggestion: " Ayuno minimo de 6 horas", image:"3.jpg", price:135},
+				{ estudio: "Tiempo De Protrombina ( Tp )",suggestion: " El paciente deberá informar si está en tratamiento de anticuagulantes.", image:"3.jpg", price:200},
+				{ estudio: "Tiempo De TromboplastIna Parcial Activada (Tpt)",suggestion: " Ayuno mIinimo de 4 hrs, máximo  8 hrs", image:"3.jpg", price:135},
+				{ estudio: "Tincion De Gram",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:100},
+				{ estudio: "Tiroglobulina",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:370},
+				{ estudio: "Tp-Tpt",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:200},
+				{ estudio: "Transaminasa Glutamico Oxalacetica ( Tgo / Ast )",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:120},
+				{ estudio: "Transaminasa Glutamico Piruvica ( Tgp / Alt )",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:120},
+				{ estudio: "Transaminasas ( Tgo/Tgp )",suggestion: " Ayuno de 8 hrs mInimo, máximo  12 hrs", image:"3.jpg", price:240},
+				{ estudio: "Transferrina",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:320},
+				{ estudio: "Trigliceridos",suggestion: " Ayuno de 8 hrs mInimo, máximo  12 hrs", image:"3.jpg", price:90},
+				{ estudio: "Triyodotironinalibre T3 (T3 Libre)",suggestion: " Ayuno de 8 hrs mInimo, máximo 12 hrs, para bebes 3 horas de ayuno", image:"3.jpg", price:240},
+				{ estudio: "Triyodotironinaltotal T3 (T3 Total)",suggestion: " Ayuno de 8 hrs mInimo, máximo 12 hrs, para bebes 3 horas de ayuno", image:"3.jpg", price:240},
+				{ estudio: "Troponina I",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:730},
+				{ estudio: "Urea Serica",suggestion: " Ayuno de 8 hrs mInimo, máximo  12 hrs", image:"3.jpg", price:90},
+				{ estudio: "Urografia Excretora",suggestion: " No requiere ayuno, es con previa cita, aplicar laxacte fleet via rectal 4 horas antes del estudio", image:"3.jpg", price:2200},
+				{ estudio: "V.D.R.L.",suggestion: " Ayuno de 8 hrs mInimo, máximo 10 hrs", image:"3.jpg", price:200},
+				{ estudio: "Velocidad De Sedimentacion Globular (Vsg)",suggestion: " Ayuno minimo de 3 horas", image:"3.jpg", price:130},
+				{ estudio: "Virus De Papiloma Humano X Patologia",suggestion: " Abstinencia sexual de 3 dIas(mujeres y hombres). No ingerir ni aplicar 7 dIas antes del estudio antibióticos, antimicóticos. (cremas, óvulos, duchas vaginales en caso de mujeres)", image:"3.jpg", price:350},
+				{ estudio: "Virus De Papiloma Humano Vph Por Pcr",suggestion: " 3 dIas de abstinencia sexual, tener 12 a 14 dIas de haber terminado periodo mestrual, no aplicar cremas, duchas ni ovulos vaginales y previo aseo", image:"3.jpg", price:4105},
+				{ estudio: "Vitamina B12",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:380},
+				{ estudio: "Vitamina C (Acido Ascorbico)",suggestion: " No ingerir alcohol ni vitamInicos 24 horas antes de la toma de muestra. El paciente deberá informar si está en tratamiento médico con aspirina o anticonceptivos orales.", image:"3.jpg", price:1100},
+				{ estudio: "Vitamina D25 Hidroxi (Calciferol)",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:500},
+				{ estudio: "Glucosa, Colesterol Y Trigliceridos",suggestion: " Ayuno de 8 horas", image:"3.jpg", price:190},
+				{ estudio: "Prenatal 1",suggestion: " Ayuno de 8 hrs mInimo, máximo 12 hrs,  traer la primera orina de la mañana", image:"3.jpg", price:780},
+				{ estudio: "Perfil Ginecologico 1 (Lh, Fsh, Prl, Prg, E2, Test. Total)",suggestion: " No realizar ejercicio antes de la toma de muestra. Toma de muestra de 6:30 am a 9:00 am únicamente.", image:"3.jpg", price:1100},
+				{ estudio: "Perfil Ginecologico 2 (Lh, Fsh, Prol, Prg, Test Total, Est)",suggestion: " No realizar ejercicio antes de la toma de muestra. Toma de muestra de 6:30 am a 9:00 am únicamente.", image:"3.jpg", price:1200},
+				{ estudio: "Perfil Reumatico ( Asto, Pcr, Fr, Vsg, Acido Urico )",suggestion: " Ayuno de 8 horas", image:"3.jpg", price:700},
+				{ estudio: "Perfil Reumatico Completo ( Ana, Cfar, Aso, Pcr, Fr, Acu)",suggestion: " Ayuno de 8 horas a 12 horas y sin aseo bucal", image:"3.jpg", price:1410},
+				{ estudio: "Perfil Suprarrenal (Acth, Cor, Aldost, 17 Cetos, 17 Oh-Corti)",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:2445},
+				{ estudio: "Perfil Testicular (Prolactina, Fsh, Lh Y Testosterona)",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:750},
+				{ estudio: "Perfil Torch Igm",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:900},
+				{ estudio: "Perfil Torch Igg",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:900},
+				{ estudio: "Perfil Torch Ii Igg-Igm",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:1800},
+				{ estudio: "Perfil Hepatico 1",suggestion: " Ayuno de 8 hrs mInimo,  máximo 10  hrs", image:"3.jpg", price:540},
+				{ estudio: "Perfil Prenupcial 1",suggestion: " Ayuno de 8 hrs mInimo,  máximo 10  hrs", image:"3.jpg", price:200},
+				{ estudio: "Perfil Prenupcial 2",suggestion: " Ayuno de 8 hrs mInimo,  máximo 10  hrs", image:"3.jpg", price:385},
+				{ estudio: "Baciloscopia 5 Muestras",suggestion: " Traer la primera expectoración (flema no saliva) de la mañana, no recolectarla en el laboratorio", image:"3.jpg", price:800},
+				{ estudio:"DENSITOMETRIA COLUMNA Y CADERA",suggestion:"PRESENTAR ORDEN MEDICA, TRAER ROPA CÓMODA, SIN METALES, PESO Y TALLA - CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:160},
+				{ estudio:"DENSITOMETRIA CUERPO COMPLETO",suggestion:"PRESENTAR ORDEN MEDICA, TRAER ROPA CÓMODA, SIN METALES, PESO Y TALLA - CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:450},
+				{ estudio:"RADIOGRAFIA DE BRAZO AP Y LATERAL",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:550},
+				{ estudio:"RADIOGRAFIA DE BRAZO AP O LATERAL",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:300},
+				{ estudio:"RADIOGRAFIA DE BRAZOS AP Y LATERAL",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:750},
+				{ estudio:"RADIOGRAFIA DE  BRAZOS AP O LATERAL",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:500},
+				{ estudio:"RADIOGRAFIA UNA POSICION EXTRA",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:300},
+				{ estudio:"RADIOGRAFIA DE WATERS",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:300},
+				{ estudio:"RADIOGRAFIA DE ABDOMEN AGUDO (ABDOMEN DE PIE,CUBITO Y TORAX)",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:1100},
+				{ estudio:"RADIOGRAFIA DE ABDOMEN PIE Y DE CUBITO",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:650},
+				{ estudio:"RADIOGRAFIA DE ABDOMEN SIMPLE",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:350},
+				{ estudio:"RADIOGRAFIA DE ADENOIDES LATERAL (RINOFARINGE)",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:350},
+				{ estudio:"PAQUETE ORTODONCIA:LATERAL DE CRANEO, MODELOS DE ESTUDIO EN YESO, FOTOGRAFIAS CLINICAS INTRA Y EXTRAORAL Y CEFALOMETRIA.",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO, SE ENTREGA EN 3 DIAS HABILES.",image:"3.jpg", price:475},
+				{ estudio: "MODELOS DE ESTUDIO EN YESO",suggestion:"PRESENTAR ORDEN MEDICA, SE REALIZA DE 10AM A 4PM Y SE ENTREGA EN 3 DIAS HABILES.",image:"3.jpg", price:400},
+				{ estudio:"RADIOGRAFIA DE ANTEBRAZO AP O LATERAL",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:300},
+				{ estudio:"RADIOGRAFIA DE ANTEBRAZO AP Y LATERAL",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:450},
+				{ estudio:"RADIOGRAFIA DE ANTEBRAZOS AP O LATERAL",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:500},
+				{ estudio:"RADIOGRAFIA DE ANTEBRAZOS AP Y LATERAL",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:750},
+				{ estudio:"RADIOGRAFIA DE AXIALES TIPO MERCHAN A 45º",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:300},
+				{ estudio:"RADIOGRAFIA DE AXIALES DE ROTULA A 30º",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:300},
+				{ estudio:"RADIOGRAFIA DE AXIALES DE ROTULA A 60º",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:300},
+				{ estudio:"RADIOGRAFIA DE AXIALES DE ROTULAS A 30º Y 60º",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:600},
+				{ estudio:"RADIOGRAFIA DE AXIALES DE ROTULAS A 30º 60º Y 90º",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:800},
+				{ estudio:"RADIOGRAFIA DE CALCANEO LATERAL",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:300},
+				{ estudio:"RADIOGRAFIA DE CALCANEOS LATERALES",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:500},
+				{ estudio:"RADIOGRAFIA DE MUÑECA AP Y LATERAL",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:400},
+				{ estudio:"RADIOGRAFIA DE MUÑECA AP O LATERAL",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:300},
+				{ estudio:"RADIOGRAFIA DE MUÑECAS AP Y LATERAL",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:750},
+				{ estudio:"RADIOGRAFIA DE MUÑECAS AP O LATERAL",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:500},
+				{ estudio:"CEFALOMETRIA",suggestion:"PRESENTAR ORDEN MEDICA - SE ENTREGA EN 3 DIAS HABILES.",image:"3.jpg", price:350},
+				{ estudio:"CEFALOPELVIMETRIA (PELVIS EMBARAZO)",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:800},
+				{ estudio:"RADIOGRAFIA DE CODO AP Y LATERAL",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:400},
+				{ estudio:"RADIOGRAFIA DE CODO AP O LATERAL",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:300},
+				{ estudio:"RADIOGRAFIA DE CODOS AP Y LATERAL",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:750},
+				{ estudio:"RADIOGRAFIA DE CODOS AP O LATERAL",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:500},
+				{ estudio:"RADIOGRAFIA DE COLUMNA CERVICAL O CUELLO AP Y LATERAL ",suggestion:"PRESENTAR ORDEN MEDICA, SIN METALES DEL CUELLO HACIA ARRIBA- CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:550},
+				{ estudio:"RADIOGRAFIA DE COLUMNA CERVICAL O CUELLO AP O LATERAL ",suggestion:"PRESENTAR ORDEN MEDICA, SIN METALES DEL CUELLO HACIA ARRIBA- CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:350},
+				{ estudio:"RADIOGRAFIA DE COLUMNA CERVICAL AP, LATERAL Y DINAMICAS",suggestion:"PRESENTAR ORDEN MEDICA, SIN METALES DEL CUELLO HACIA ARRIBA- CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:1100},
+				{ estudio:"RADIOGRAFIA DE COLUMNA DORSAL AP Y LATERAL",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:600},
+				{ estudio:"RADIOGRAFIA DE COLUMNA DORSAL AP O LATERAL",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:400},
+				{ estudio:"RADIOGRAFIA DE COLUMNA DORSAL AP, LATERAL Y DINAMICAS",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:1100},
+				{ estudio:"RADIOGRAFIA DE COLUMNA LUMBAR AP Y LATERAL Y OBLICUAS CUATRO PROYECCIONES",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:1100},
+				{ estudio:"RADIOGRAFIA DE COLUMNA LUMBAR AP Y LAT",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:500},
+				{ estudio:"RADIOGRAFIA DE COLUMNA LUMBAR AP O LAT",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:400},
+				{ estudio:"RADIOGRAFIA DE COLUMNA LUMBAR AP, LAT Y DINAMICAS",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:1100},
+				{ estudio:"RADIOGRAFIA DE CADERA AP Y LATERAL",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:500},
+				{ estudio:"RADIOGRAFIA DE CADERA AP O LATERAL",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:300},
+				{ estudio:"RADIOGRAFIA DE CRANEO AP O LATERAL",suggestion:"PRESENTAR ORDEN MEDICA, SIN METALES DEL CUELLO HACIA ARRIBA- CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:300},
+				{ estudio:"RADIOGRAFIA DE CRANEO AP Y LATERAL",suggestion:"PRESENTAR ORDEN MEDICA, SIN METALES DEL CUELLO HACIA ARRIBA- CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:550},
+				{ estudio:"RADIOGRAFIA DE CRANEO AP Y LATERAL Y TOWNE (SERIE DE CRANEO)",suggestion:"PRESENTAR ORDEN MEDICA, SIN METALES DEL CUELLO HACIA ARRIBA- CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:700},
+				{ estudio:"RADIOGRAFIA DE LATERAL DE CRANEO (DENTAL)",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:300},
+				{ estudio:"RADIOGRAFIA DE FEMUR AP Y LATERAL",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:600},
+				{ estudio:"RADIOGRAFIA DE FEMUR AP O LATERAL",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:400},
+				{ estudio:"RADIOGRAFIA DE FEMURS AP Y LATERAL",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:750},
+				{ estudio:"RADIOGRAFIA DE FEMURS AP O LATERAL",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:550},
+				{ estudio:"FOTOGRAFIAS CLINICAS INTRA Y EXTRAORALES ",suggestion:"PRESENTAR ORDEN MEDICA, SE REALIZA DE 10AM A 4PM Y SE ENTREGA EN 3 DIAS HABILES.",image:"3.jpg", price:400},
+				{ estudio:"RADIOGRAFIA DE HOMBRO AP O LATERAL",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:300},
+				{ estudio:"RADIOGRAFIA DE HOMBRO AP Y LATERAL ",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:500},
+				{ estudio:"RADIOGRAFIA DE HOMBROS AP Y LATERAL",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:750},
+				{ estudio:"RADIOGRAFIA DE HOMBROS  AP O LATERAL",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:500},
+				{ estudio:"RADIOGRAFIA DE MANDIBULA ATM BOCA ABIERTA Y BOCA CERRADA Y PANORAMICA",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:700},
+				{ estudio:"RADIOGRAFIA DE MANO AP Y OBLICUA",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:400},
+				{ estudio:"RADIOGRAFIA DE MANO AP O OBLICUA",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:300},
+				{ estudio:"RADIOGRAFIA DE MANOS AP Y OBLICUAS",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:750},
+				{ estudio:"RADIOGRAFIA DE MANOS AP O OBLICUAS",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:500},
+				{ estudio:"RADIOMETRIA DE MIEMBROS INFERIORES O SEGMENTADA",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:800},
+				{ estudio:"RADIOGRAFIA DE ESTERNON",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:300},
+				{ estudio:"RADIOGRAFIA DE OCLUSAL",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:150},
+				{ estudio:"RADIOGRAFIA DE PANORAMICA DENTAL",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:150},
+				{ estudio:"RADIOGRAFIA DE PANORAMICA Y LATERAL DE CRANEO",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:400},
+				{ estudio:"RADIOGRAFIA DE PELVIS AP",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:350},
+				{ estudio:"RADIOGRAFIA DE PELVIS AP (NEUTRA Y RANA)  SOLO NIÑOS",suggestion:"PRESENTAR ORDEN MEDICA, SOLO NIÑOS, CONFORME VAN LLEGANDO PASANDO.",image:"3.jpg", price:450},
+				{ estudio:"RADIOGRAFIA DE PELVIS AP (NEUTRA Y RANA)  SOLO ADULTOS",suggestion:"PRESENTAR ORDEN MEDICA, SOLO ADULTOS, CONFORME VAN LLEGANDO PASANDO.",image:"3.jpg", price:600},
+				{ estudio:"RADIOGRAFIA DE PELVIS AP Y LATERAL ",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:600},
+				{ estudio:"RADIOGRAFIA DE PERFILOGRAMA ",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:300},
+				{ estudio:"RADIOGRAFIA DE PERIAPICAL INDIVIDUAL",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:100},
+				{ estudio:"RADIOGRAFIA DE PIE AP Y OBLICUA",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:450},
+				{ estudio:"RADIOGRAFIA DE PIE AP O OBLICUA",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:300},
+				{ estudio:"RADIOGRAFIA DE PIES AP Y OBLICUA",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:750},
+				{ estudio:"RADIOGRAFIA DE PIES AP O OBLICUA",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:500},
+				{ estudio:"RADIOGRAFIA DE PIERNA (TIBIA Y PERONE) AP O LATERAL ",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:300},
+				{ estudio:"RADIOGRAFIA DE PIERNA (TIBIA Y PERONE) AP Y LATERAL",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:500},
+				{ estudio:"RADIOGRAFIA DE PIERNAS (TIBIA Y PERONE) AP Y LATERAL",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:750},
+				{ estudio:"RADIOGRAFIA DE PIERNAS (TIBIA Y PERONE) AP O LATERAL ",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:500},
+				{ estudio:"RADIOGRAFIA DE PIES CON APOYO AP Y LATERAL",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:800},
+				{ estudio:"RADIOGRAFIA DE RODILLA AP O LATERAL",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:300},
+				{ estudio:"RADIOGRAFIA DE RODILLA AP Y LATERAL",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:250},
+				{ estudio:"RADIOGRAFIA DE RODILLAS AP O LATERAL CON APOYO",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:500},
+				{ estudio:"RADIOGRAFIA DE RODILLAS AP Y LATERAL",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:400},
+				{ estudio:"RADIOGRAFIA ATM (BOCA ABIERTA Y BOCA CERRADA)",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:500},
+				{ estudio:"RADIOGRAFIA CARPAL",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:300},
+				{ estudio:"RADIOGRAFIA LATERAL DE CRANEO CON PLOMADA",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:350},
+				{ estudio:"RADIOGRAFIA DE SENOS PARANASALES TRES PROYECC. WATERS,CADWELL,LATERAL O RINOFARINGE",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:500},
+				{ estudio:"RADIOGRAFIA DE SERIE DE PERIAPICAL",suggestion:"PRESENTAR ORDEN MEDICA, PREGUNTAR A TECNICO EN TURNO",image:"3.jpg", price:1200},
+				{ estudio:"RADIOGRAFIA DE SERIE OSEA METASTASICA",suggestion:"PRESENTAR ORDEN MEDICA,TRAER ROPA CÓMODA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:2600},
+				{ estudio:"RADIOGRAFIA DE TOBILLO AP Y LATERAL",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:450},
+				{ estudio:"RADIOGRAFIA DE TOBILLO AP O LATERAL",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:300},
+				{ estudio:"RADIOGRAFIA DE TOBILLOS AP Y LATERAL",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:750},
+				{ estudio:"RADIOGRAFIA DE TOBILLOS AP O LATERAL",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:500},
+				{ estudio:"RADIOGRAFIA DE TORAX OSEO AP U OBLICUA",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:650},
+				{ estudio:"RADIOGRAFIA DE TORAX PA Y LATERAL",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:600},
+				{ estudio:"RADIOGRAFIA DE TORAX PA ( TELE DE TORAX )",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:280},
+				{ estudio:"ELECTROCARDIOGRAMA SIN INTERPRETACION",suggestion:"PRESENTAR ORDEN MEDICA, EN CASO DE TENER MUCHO VELLO(RASURAR)",image:"3.jpg", price:100},
+				{ estudio:"ELECTROCARDIOGRAMA CON INTERPRETACION",suggestion:"PRESENTAR ORDEN MEDICA, EN CASO DE TENER MUCHO VELLO EN EL PECHO (RASURAR).",image:"3.jpg", price:400},
+				{ estudio:"MASTOGRAFIA ",suggestion:"INDICACIONES: PRESENTAR ORDEN MEDICA, PRESENTARSE ASEADA, AXILAS DEPILADAS, SIN TALCO, SIN CREMA, SIN DESODORANTE- SOLO MUJERES MAYORES A 40 AÑOS DE EDAD.",image:"3.jpg", price:1400},
+				{ estudio:"MASTOGRAFIA BILATERAL CON IMPLANTES",suggestion:"INDICACIONES: PRESENTAR ORDEN MEDICA, PRESENTARSE ASEADA, AXILAS DEPILADAS, SIN TALCO, SIN CREMA, SIN DESODORANTE- SOLO MUJERES MAYORES A 40 AÑOS DE EDAD.",image:"3.jpg", price:1400},
+				{ estudio:"TOMOGRAFIA DE COLUMNA CERVICAL SIMPLE CON RECONSTRUCCION 3D",suggestion:"PRESENTAR ORDEN MEDICA - CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:4000},
+				{ estudio:"TOMOGRAFIA DE COLUMNA CERVICAL SIMPLE Y CONTRASTADA CON RECONSTRUCCION 3D",suggestion:"PRESENTAR ORDEN MEDICA, AYUNO DE 8 HORAS, MENCIONAR AL PACIENTE SI ES ALÉRGICO ALGÚN MEDICAMENTO, NO MOVERSE, MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000. (FIRMAR RESPONSIVA).",image:"3.jpg", price:5000},
+				{ estudio:"TOMOGRAFIA DE COLUMNA DORSAL SIMPLE CON RECONSTRUCCION 3D",suggestion:"PRESENTAR ORDEN MEDICA - CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:4000},
+				{ estudio:"TOMOGRAFIA DE COLUMNA DORSAL SIMPLE Y CONTRASTADA CON RECONSTRUCCION 3D",suggestion:"PRESENTAR ORDEN MEDICA, AYUNO DE 8 HORAS, MENCIONAR AL PACIENTE SI ES ALÉRGICO ALGÚN MEDICAMENTO, NO MOVERSE, MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000.(FIRMAR RESPONSIVA).",image:"3.jpg", price:5000},
+				{ estudio:"TOMOGRAFIA DE COLUMNA LUMBAR SIMPLE CON RECONSTRUCCION 3D",suggestion:"PRESENTAR ORDEN MEDICA - CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:4000},
+				{ estudio:"TOMOGRAFIA DE COLUMNA LUMBAR SIMPLE Y CONTRASTADA CON RECONSTRUCCION 3D",suggestion:"PRESENTAR ORDEN MEDICA, AYUNO DE 8 HORAS, MENCIONAR AL PACIENTE SI ES ALÉRGICO ALGÚN MEDICAMENTO, NO MOVERSE, MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000. (FIRMAR RESPONSIVA).",image:"3.jpg", price:5000},
+				{ estudio:"TOMOGRAFIA DE CRANEO SIMPLE POR TRAUMATISMO CON RECONSTRUCCION 3D",suggestion:"PRESENTAR ORDEN MEDICA - CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:4000},
+				{ estudio:"TOMOGRAFIA DE CRANEO SIMPLE",suggestion:"PRESENTAR ORDEN MEDICA - CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:800},
+				{ estudio:"TOMOGRAFIA DE CRANEO SIMPLE CON VENT PARA HUESO(POR TRAUMATISMO)",suggestion:"PRESENTAR ORDEN MEDICA - CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:1200},
+				{ estudio:"TOMOGRAFIA DE CRANEO SIMPLE Y CONTRASTADA",suggestion:"PRESENTAR ORDEN MEDICA, AYUNO DE 8 HORAS, MENCIONAR AL PACIENTE SI ES ALÉRGICO ALGÚN MEDICAMENTO, NO MOVERSE, MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000. (FIRMAR RESPONSIVA).",image:"3.jpg", price:2500},
+				{ estudio:"TOMOGRAFIA DE CUELLO SIMPLE",suggestion:"PRESENTAR ORDEN MEDICA - CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:3100},
+				{ estudio:"TOMOGRAFIA DE CUELLO SIMPLE Y CONTRASTADA",suggestion:"PRESENTAR ORDEN MEDICA, AYUNO DE 8 HORAS, MENCIONAR AL PACIENTE SI ES ALÉRGICO ALGÚN MEDICAMENTO, NO MOVERSE, MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000. (FIRMAR RESPONSIVA).",image:"3.jpg", price:4000},
+				{ estudio:"TOMOGRAFIA DE ABDOMEN MULTIFASE CON CONTRASTE",suggestion:"PRESENTAR ORDEN MEDICA, AYUNO DE 8 HORAS, MENCIONAR AL PACIENTE SI ES ALÉRGICO ALGÚN MEDICAMENTO, NO MOVERSE, MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000. (FIRMAR RESPONSIVA).",image:"3.jpg", price:5000},
+				{ estudio:"TOMOGRAFIA DE ABDOMEN SIMPLE",suggestion:"PRESENTAR ORDEN MEDICA, TOMAR 1 LITRO DE AGUA- CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:2000},
+				{ estudio:"TOMOGRAFIA DE ABDOMEN SIMPLE Y CONTRASTADA",suggestion:"PRESENTAR ORDEN MEDICA, AYUNO DE 8 HORAS, TOMAR JUGO ( NO NECTAR) O AGUA EN CASO DE SER DIABETICO, MENCIONAR AL PACIENTE SI ES ALÉRGICO ALGÚN MEDICAMENTO, NO MOVERSE, MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000.(FIRMAR RESPONSIVA).",image:"3.jpg", price:3500},
+				{ estudio:"TOMOGRAFIA DE FEMUR SIMPLE CON RECONSTRUCCION EN 3D",suggestion:"PRESENTAR ORDEN MEDICA - CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:4000},
+				{ estudio:"TOMOGRAFIA DE FEMUR SIMPLE Y CONTRASTADACON RECONSTRUCCION EN 3D",suggestion:"PRESENTAR ORDEN MEDICA, AYUNO DE 8 HORAS, MENCIONAR AL PACIENTE SI ES ALÉRGICO ALGÚN MEDICAMENTO, NO MOVERSE, MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000. (FIRMAR RESPONSIVA).",image:"3.jpg", price:5000},
+				{ estudio:"TOMOGRAFIA DE OIDOS SIMPLE CORTES AXIALES Y CORONALES",suggestion:"PRESENTAR ORDEN MEDICA - CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:2500},
+				{ estudio:"TOMOGRAFIA DE OIDOS SIMPLE Y CONTRASTADA CORTES AXIALES Y CORONALES",suggestion:"PRESENTAR ORDEN MEDICA, AYUNO DE 8 HORAS, MENCIONAR AL PACIENTE SI ES ALÉRGICO ALGÚN MEDICAMENTO, NO MOVERSE, MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000. (FIRMAR RESPONSIVA).",image:"3.jpg", price:4000},
+				{ estudio:"TOMOGRAFIA DE ORBITAS SIMPLE CORTES AXIALES Y CORONALES",suggestion:"PRESENTAR ORDEN MEDICA - CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:2500},
+				{ estudio:"TOMOGRAFIA DE ORBITAS SIMPLE Y CONTRASTADA CORTES AXIALES Y CORONALES",suggestion:"PRESENTAR ORDEN MEDICA, AYUNO DE 8 HORAS, MENCIONAR AL PACIENTE SI ES ALÉRGICO ALGÚN MEDICAMENTO, NO MOVERSE, MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000. (FIRMAR RESPONSIVA).",image:"3.jpg", price:4000},
+				{ estudio:"TOMOGRAFIA DE SENOS PARANASALES SIMPLE CORTES AXIALES ó CORONALES",suggestion:"PRESENTAR ORDEN MEDICA - CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:800},
+				{ estudio:"TOMOGRAFIA DE SENOS PARANASALES SIMPLE CORTES AXIALES Y CORONALES",suggestion:"PRESENTAR ORDEN MEDICA - CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:1500},
+				{ estudio:"TOMOGRAFIA DE SENOS PARANASALES SIMPLE Y CONTRASTADA CORTES AXIALES Y CORONALES",suggestion:"PRESENTAR ORDEN MEDICA, AYUNO DE 8 HORAS, MENCIONAR AL PACIENTE SI ES ALÉRGICO ALGÚN MEDICAMENTO, NO MOVERSE, MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000. (FIRMAR RESPONSIVA).",image:"3.jpg", price:4000},
+				{ estudio:"TOMOGRAFIA DE TORAX SIMPLE",suggestion:"PRESENTAR ORDEN MEDICA - CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:2500},
+				{ estudio:"TOMOGRAFIA DE TORAX SIMPLE Y CONTRASTADA",suggestion:"PRESENTAR ORDEN MEDICA, AYUNO DE 8 HORAS, MENCIONAR AL PACIENTE SI ES ALÉRGICO ALGÚN MEDICAMENTO, NO MOVERSE, MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000. (FIRMAR RESPONSIVA).",image:"3.jpg", price:3000},
+				{ estudio:"UROTOMOGRAFIA",suggestion:"PRESENTAR ORDEN MEDICA, AYUNO DE 8 HORAS, TOMAR JUGO ( NO NECTAR) O AGUA EN CASO DE SER DIABETICO, MENCIONAR AL PACIENTE SI ES ALÉRGICO ALGÚN MEDICAMENTO, NO MOVERSE, MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000. (FIRMAR RESPONSIVA).",image:"3.jpg", price:6000},
+				{ estudio:"TOMOGRAFIA TORACOABDOMINAL",suggestion:"PRESENTAR ORDEN MEDICA, AYUNO DE 8 HORAS, TOMAR JUGO ( NO NECTAR) O AGUA EN CASO DE SER DIABETICO, MENCIONAR AL PACIENTE SI ES ALÉRGICO ALGÚN MEDICAMENTO, NO MOVERSE, MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000. (FIRMAR RESPONSIVA).",image:"3.jpg", price:7000},
+				{ estudio:"TOMOGRAFIA DE MAXILAR SUPERIOR O INFERIOR (DENTAL)",suggestion:"PRESENTAR ORDEN MEDICA - CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:500},
+				{ estudio:"TOMOGRAFIA DE MANDIBULA SIMPLE CON RECONSTRUCCION EN 3D",suggestion:"PRESENTAR ORDEN MEDICA - CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:1500},
+				{ estudio:"TOMOGRAFIA MAXILOFACIAL CON RECONSTRUCCION EN 3D (CONE BEAM)",suggestion:"PRESENTAR ORDEN MEDICA - CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:3000},
+				{ estudio:"TOMOGRAFIA DE MACIZO FACIAL SIMPLE CON RECONSTRUCCION EN 3D",suggestion:"PRESENTAR ORDEN MEDICA - CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:3000},
+				{ estudio:"TOMOGRAFIA DE MACIZO FACIAL SIMPLE Y CONTRASTADA CON RECONSTRUCCION EN 3D",suggestion:"PRESENTAR ORDEN MEDICA, AYUNO DE 8 HORAS, MENCIONAR AL PACIENTE SI ES ALÉRGICO ALGÚN MEDICAMENTO, NO MOVERSE, MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000. (FIRMAR RESPONSIVA).",image:"3.jpg", price:4000},
+				{ estudio:"ANGIOTOMOGRAFIA ARTERIAL Y VENOSO DE MIEMBROS PELVICOS",suggestion:"PREVIA CITA (PRESENTAR ORDEN MEDICA) AGENDAR CON $200, AYUNO DE 8 HORAS, MENCIONAR AL PACIENTE SI ES ALÉRGICO ALGÚN MEDICAMENTO,  MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000, TRAER ROPA COMODA. (FIRMAR RESPONSIVA-NO HAY URGENCIA-SE ENTREGA AL DIA SIGUIENTE).",image:"3.jpg", price:7000},
+				{ estudio:"ANGIOTOMOGRAFIA ARTERIAL O VENOSO DE MIEMBROS PELVICOS",suggestion:"PREVIA CITA (PRESENTAR ORDEN MEDICA) AGENDAR CON $200, AYUNO DE 8 HORAS, MENCIONAR AL PACIENTE SI ES ALÉRGICO ALGÚN MEDICAMENTO,  MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000, TRAER ROPA COMODA. (FIRMAR RESPONSIVA-NO HAY URGENCIA-SE ENTREGA AL DIA SIGUIENTE).",image:"3.jpg", price:5000},
+				{ estudio:"ANGIOTOMOGRAFIA POLIGONO DE WILIS POR ANEURISMA CEREBRAL",suggestion:"PREVIA CITA (PRESENTAR ORDEN MEDICA) AGENDAR CON $200, AYUNO DE 8 HORAS, MENCIONAR AL PACIENTE SI ES ALÉRGICO ALGÚN MEDICAMENTO,  MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000, TRAER ROPA COMODA. (FIRMAR RESPONSIVA-NO HAY URGENCIA-SE ENTREGA AL DIA SIGUIENTE).",image:"3.jpg", price:4600},
+				{ estudio:"ANGIOTOMOGRAFIA PULMONAR",suggestion:"PREVIA CITA (PRESENTAR ORDEN MEDICA) AGENDAR CON $200, AYUNO DE 8 HORAS, MENCIONAR AL PACIENTE SI ES ALÉRGICO ALGÚN MEDICAMENTO,  MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000, TRAER ROPA COMODA. (FIRMAR RESPONSIVA-NO HAY URGENCIA-SE ENTREGA AL DIA SIGUIENTE).",image:"3.jpg", price:5300},
+				{ estudio:"ANGIOTOMOGRAFIA RENAL",suggestion:"PREVIA CITA (PRESENTAR ORDEN MEDICA) AGENDAR CON $200, AYUNO DE 8 HORAS, MENCIONAR AL PACIENTE SI ES ALÉRGICO ALGÚN MEDICAMENTO,  MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000, TRAER ROPA COMODA. (FIRMAR RESPONSIVA-NO HAY URGENCIA-SE ENTREGA AL DIA SIGUIENTE).",image:"3.jpg", price:6400},
+				{ estudio:"ANGIOTOMOGRAFIA ABDOMINAL POR ANEURISMA",suggestion:"PREVIA CITA (PRESENTAR ORDEN MEDICA) AGENDAR CON $200, AYUNO DE 8 HORAS, MENCIONAR AL PACIENTE SI ES ALÉRGICO ALGÚN MEDICAMENTO,  MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000, TRAER ROPA COMODA. (FIRMAR RESPONSIVA-NO HAY URGENCIA-SE ENTREGA AL DIA SIGUIENTE).",image:"3.jpg", price:5300},
+				{ estudio:"ANGIOTOMOGRAFIA CEREBRAL CON RECONSTRUCCION",suggestion:"PREVIA CITA (PRESENTAR ORDEN MEDICA) AGENDAR CON $200, AYUNO DE 8 HORAS, MENCIONAR AL PACIENTE SI ES ALÉRGICO ALGÚN MEDICAMENTO,  MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000, TRAER ROPA COMODA. (FIRMAR RESPONSIVA-NO HAY URGENCIA-SE ENTREGA AL DIA SIGUIENTE).",image:"3.jpg", price:6500},
+				{ estudio:"ANGIOTOMOGRAFIA CUELLO",suggestion:"PREVIA CITA (PRESENTAR ORDEN MEDICA) AGENDAR CON $200, AYUNO DE 8 HORAS, MENCIONAR AL PACIENTE SI ES ALÉRGICO ALGÚN MEDICAMENTO,  MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000, TRAER ROPA COMODA. (FIRMAR RESPONSIVA-NO HAY URGENCIA-SE ENTREGA AL DIA SIGUIENTE).",image:"3.jpg", price:6800},
+				{ estudio:"ANGIOTOMOGRAFIA DE AORTA",suggestion:"PREVIA CITA (PRESENTAR ORDEN MEDICA) AGENDAR CON $200, AYUNO DE 8 HORAS, MENCIONAR AL PACIENTE SI ES ALÉRGICO ALGÚN MEDICAMENTO,  MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000, TRAER ROPA COMODA. (FIRMAR RESPONSIVA-NO HAY URGENCIA-SE ENTREGA AL DIA SIGUIENTE).",image:"3.jpg", price:6000},
+				{ estudio:"ULTRASONIDO HEPATICO DOPPLER",suggestion:"PREVIA CITA, TRAER ORDEN MEDICA, AGENDAR CON $200, PRESENTARSE EN AYUNO Y ASEADO, UN DIA ANTES DEL ESTUDIO DIETA LIQUIDA ( AGUA ,TE,GELATINA,CALDOS, SIN CARNE NI TORTILLA, SIN VERDURA) A LAS 4 P.M TOMAR LAXANTE ( FLEET ORAL CON JUGO O AGUA SI ES DIABETICO). POSTERIORMENTE A LAS 10PM APLICAR LAXANTE (ENEMA) VIA RECTAL, Y EL DIA DEL ESTUDIO A LAS 5AM APLICAR LAXANTE (ENEMA) VIA RECTAL.",image:"3.jpg", price:1500},
+				{ estudio:"ULTRASONIDO ABDOMEN SUPERIOR",suggestion:"PRESENTAR ORDEN MEDICA, AYUNO MINIMO 8 HORAS.",image:"3.jpg", price:400},
+				{ estudio:"ULTRASONIDO ABDOMINO-PELVICO (HIGADO,VESICULA BILIAR,RIÑONES,PANCREAS,BASO, UTERO Y OVARIOS.)",suggestion:"PRESENTAR ORDEN MEDICA, AYUNO MÍNIMO DE 8 HORAS, TRAER DE LITRO A LITRO Y MEDIO DE AGUA, TOMARA CUANDO SE LE INDIQUE",image:"3.jpg", price:500},
+				{ estudio:"ULTRASONIDO ABDOMINO-PROSTATICO (HIGADO,VESICULA BILIAR,RIÑONES,PANCREAS,BASO Y PROSTATA)",suggestion:"PRESENTAR ORDEN MEDICA, AYUNO MÍNIMO DE 8 HORAS, TRAER DE LITRO A LITRO Y MEDIO DE AGUA, TOMARA CUANDO SE LE INDIQUE",image:"3.jpg", price:1000},
+				{ estudio:"ULTRASONIDO DE CUELLO",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:700},
+				{ estudio:"ULTRASONIDO DE CUELLO DOPPLER",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:1500},
+				{ estudio:"ULTRASONIDO ARTERIAL Y VENOSO DE UNA EXTREMIDAD INFERIOR",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:2700},
+				{ estudio:"ULTRASONIDO ARTERIAL O VENOSO DE UNA EXTREMIDAD INFERIOR",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:1750},
+				{ estudio:"ULTRASONIDO ARTERIAL Y VENOSO DE AMBAS EXTREMIDADES INFERIORES",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:5000},
+				{ estudio:"ULTRASONIDO ARTERIAL O VENOSO DE AMBAS EXTREMIDADES INFERIORES",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:2700},
+				{ estudio:"ULTRASONIDO ARTERIAL Y VENOSO DE UNA EXTREMIDAD SUPERIOR",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:2700},
+				{ estudio:"ULTRASONIDO ARTERIAL O VENOSO DE UNA EXTREMIDAD SUPERIOR",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:1750},
+				{ estudio:"ULTRASONIDO ARTERIAL Y VENOSO DE AMBAS EXTREMIDADES SUPERIOR",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:5000},
+				{ estudio:"ULTRASONIDO ARTERIAL O VENOSO DE AMBAS EXTREMIDADES SUPERIOR",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:2700},
+				{ estudio:"ULTRASONIDO DE MAMAS ",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:300},
+				{ estudio:"ULTRASONIDO TESTICULAR",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO, ASEADO.",image:"3.jpg", price:700},
+				{ estudio:"ULTRASONIDO TESTICULAR DOPPLER (VARICOCELE, ORQUIEPIDEDIMITIS)",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO, ASEADO.",image:"3.jpg", price:1100},
+				{ estudio:"ULTRASONIDO ENDOVAGINAL",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO, ASEADA.",image:"3.jpg", price:650},
+				{ estudio:"ULTRASONIDO ENDOVAGINAL DOPPLER",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO, ASEADA.",image:"3.jpg", price:1100},
+				{ estudio:"ULTRASONIDO INTERFASE PLACENTARIA (DOPPLER)",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:750},
+				{ estudio:"ULTRASONIDO OBSTETRICO",suggestion:"PRESENTAR ORDEN MEDICA, EMBARAZOS MENORES A 3 MESES TRAER UN LITRO DE AGUA Y ACA SE LE INDICA EN QUE MOMENTO DEBERA TOMARLA.",image:"3.jpg", price:200},
+				{ estudio:"ULTRASONIDO OBSTETRICO + 1 CARITA EN 4D",suggestion:"PRESENTAR ORDEN MEDICA, SE REALIZA DESPUES DE 25 SEMANAS DE GESTACION A 38 SEMANAS (8 MESES)",image:"3.jpg", price:300},
+				{ estudio:"ULTRASONIDO OBSTETRICO COMPLETO EN 4TA. DIMENSION",suggestion:"PRESENTAR ORDEN MEDICA, SE REALIZA DESPUES DE 25 SEMANAS DE GESTACION A 38 SEMANAS (8 MESES)",image:"3.jpg", price:850},
+				{ estudio:"ULTRASONIDO OBSTETRICO  5TA DIMENSION",suggestion:"PRESENTAR ORDEN MEDICA, SE REALIZA DESPUES DE 25 SEMANAS DE GESTACION A 38 SEMANAS (8 MESES)",image:"3.jpg", price:1400},
+				{ estudio:"ULTRASONIDO OBSTETRICO DOPPLER",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:1500},
+				{ estudio:"ULTRASONIDO ESTRUCTURAL (MARCADORES DE 1ER Y 2DO TRIMESTRE)",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:1500},
+				{ estudio:"ULTRASONIDO PELVICO ",suggestion:"PRESENTAR ORDEN MEDICA, TRAER UN LITRO DE AGUA Y ACA SE LE DIRA EN QUE MOMENTO DEBERA TOMARLA. ASEADA",image:"3.jpg", price:200},
+				{ estudio:"ULTRASONIDO PROSTATICO",suggestion:"PRESENTAR ORDEN MEDICA, TRAER UN LITRO DE AGUA Y ACA SE LE DIRA EN QUE MOMENTO DEBERA TOMARLA, ASEADO.",image:"3.jpg", price:650},
+				{ estudio:"ULTRASONIDO PROSTATICO DOPPLER (TRANSRECTAL)",suggestion:"PREVIA CITA, TRAER ORDEN MEDICA, AGENDAR CON $200, PRESENTARSE EN AYUNO Y ASEADO, UN DIA ANTES DEL ESTUDIO DIETA LIQUIDA ( AGUA ,TE,GELATINA,CALDOS, SIN CARNE NI TORTILLA, SIN VERDURA) A LAS 4 P.M TOMAR LAXANTE ( FLEET ORAL CON JUGO O AGUA SI ES DIABETICO). POSTERIORMENTE A LAS 10PM APLICAR LAXANTE (ENEMA) VIA RECTAL, Y EL DIA DEL ESTUDIO A LAS 5AM APLICAR LAXANTE (ENEMA) VIA RECTAL.",image:"3.jpg", price:1500},
+				{ estudio:"ULTRASONIDO RENAL",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:250},
+				{ estudio:"ULTRASONIDO RENAL Y VIAS URINARIAS",suggestion:"PRESENTAR ORDEN MEDICA, TRAER UN LITRO DE AGUA Y ACA SE LE DIRA EN QUE MOMENTO DEBERA TOMARLA.",image:"3.jpg", price:750},
+				{ estudio:"ULTRASONIDO TRANSFONTANELAR",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:750},
+				{ estudio:"ULTRASONIDO HIGADO Y VIAS BILIARES ",suggestion:"PRESENTAR ORDEN MEDICA, AYUNO MINIMO 8 HORAS.",image:"3.jpg", price:200},
+				{ estudio:"ULTRASONIDO HIGADO Y VIAS BILIARES CON PRUEBA DE BOYDEN",suggestion:"PRESENTAR ORDEN MEDICA, AYUNO MINIMO 8 HORAS , POSTERIORMENTE EL MÉDICO DEBE INDICAR QUE ALIMENTOS DEBERA INGERIR",image:"3.jpg", price:600},
+				{ estudio:"ULTRASONIDO TIROIDES",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:700},
+				{ estudio:"ULTRASONIDO TIROIDES DOPPLER",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:1100},
+				{ estudio:"ULTRASONIDO APENDICE",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:200},
+				{ estudio:"ULTRASONIDO DE MUSCULO ESQUELETICO",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:850},
+				{ estudio:"ULTRASONIDO DE PILORO",suggestion:"PRESENTAR ORDEN MEDICA, TRAER UN BIBERON CON TE MANZANILLA Ó FORMULA.",image:"3.jpg", price:650},
+				{ estudio:"ULTRASONIDO INGUINAL",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:650},
+				{ estudio:"ULTRASONIDO DE CADERA (BEBES)",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:650},
+				{ estudio:"ULTRASONIDO DE AORTA ABDOMINAL DOPPLER",suggestion:"PREVIA CITA, TRAER ORDEN MEDICA, SE AGENDA CON $200, PRESENTARSE  EN AYUNO Y ASEADO, UN DIA ANTES DEL ESTUDIO DIETA LIQUIDA ( AGUA ,TE,GELATINA,CALDOS, SIN CARNE NI TORTILLA, SIN VERDURA) A LAS 4 P.M TOMAR LAXANTE ( FLEET ORAL CON JUGO O AGUA SI ES DIABETICO). POSTERIORMENTE A LAS 10PM APLICAR LAXANTE (ENEMA) VIA RECTAL, Y EL DIA DEL ESTUDIO A LAS 5AM APLICAR LAXANTE (ENEMA) VIA RECTAL.",image:"3.jpg", price:1100},
+				{ estudio:"ULTRASONIDO DE PENE ( PARTES BLANDAS NO DOPPLER)",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO, ASEADO.",image:"3.jpg", price:650},
+				{ estudio:"ULTRASONIDO DE PENE DOPPLER ( SIN VASO ACTIVO)",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO, ASEADO.",image:"3.jpg", price:1100},
+				{ estudio:"ULTRASONIDO DE PENE DOPPLER ( CON VASO ACTIVO)",suggestion:"PREVIA CITA, PRESENTAR ORDEN MEDICA, ASEO PREVIO, SE REALIZA POR LA TARDE, EL PACIENTE DEBERA COMPRAR MEDICAMENTO COVERJECT, ASEADO, EL ESTUDIO DURA 2 HORAS.",image:"3.jpg", price:2500},
+				{ estudio:"ULTRASONIDO DE CAROTIDAS DOPPLER DE AMBOS LADOS",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:2500},
+				{ estudio:"ULTRASONIDO SUPERIOR CON APENDICE",suggestion:"PRESENTAR ORDEN MEDICA, AYUNO MINIMO 8 HORAS, CONFORME VAN LLEGANDO VAN PASANDO.",image:"3.jpg", price:900},
+				{ estudio:"ULTRASONIDO INGUINAL Y ESCROTAL",suggestion:"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO, ASEADO.",image:"3.jpg", price:1150},
+				{ estudio:"ULTRASONIDO RENAL Y VIAS URINARIAS CON PROSTATA",suggestion:"PRESENTAR ORDEN MEDICA, TRAER UN LITRO DE AGUA Y ACA SE LE DIRA EN QUE MOMENTO DEBERA TOMARLA, ASEADO.",image:"3.jpg", price:1150},
+				{ estudio:"ULTRASONIDO DE ABDOMEN COMPLETO CON APENDICE",suggestion:"PRESENTAR ORDEN MEDICA, AYUNO MINIMO 8 HORAS , CONFORME VAN LLEGANDO VAN PASANDO. TRAER UN LITRO DE AGUA Y ACA SE LE DIRA EN QUE MOMENTO DEBERA TOMARLA.",image:"3.jpg", price:1250},
+				{ estudio:"RESONANCIA MAGNETICA NUCLEAR DE BRAZO SIMPLE ",suggestion:"PREVIA CITA (PRESENTAR ORDEN MEDICA) AGENDAR CON $200, EL ESTUDIO DURA 1 HORA APROXIMADAMENTE, NO MOVERSE, MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000, MENCIONAR AL PACIENTE SI TIENE UN IMPLANTE METÁLICO, TRAER ROPA CÓMODA. EN CASO DE QUE EL ESTUDIO NO SE PUEDA REALIZAR SE PROPORCIONARA UN VALE.",image:"3.jpg", price:2200},
+				{ estudio:"RESONANCIA MAGNETICA NUCLEAR DE BRAZO SIMPLE Y CONTRASTADA",suggestion:"PREVIA CITA  (IMPORTANTE: EL PACIENTE TENDRA QUE VENIR A LAS INSTALACIONES PARA SABER SI ALERGICO ALGUN MEDICAMENTO) AGENDAR CON $200, AYUNO DE 8 HORAS,  EL ESTUDIO DURA 1 HORA APROXIMADAMENTE, NO MOVERSE, MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000, MENCIONAR AL PACIENTE SI TIENE UN IMPLANTE METÁLICO, TRAER ROPA CÓMODA. EN CASO DE QUE EL ESTUDIO NO SE PUEDA REALIZAR SE PROPORCIONARA UN VALE. (FIRMAR RESPONSIVA).",image:"3.jpg", price:3500},
+				{ estudio:"RESONANCIA MAGNETICA NUCLEAR DE CODO SIMPLE",suggestion:"PREVIA CITA (PRESENTAR ORDEN MEDICA) AGENDAR CON $200, EL ESTUDIO DURA 1 HORA APROXIMADAMENTE, NO MOVERSE, MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000, MENCIONAR AL PACIENTE SI TIENE UN IMPLANTE METÁLICO, TRAER ROPA CÓMODA. EN CASO DE QUE EL ESTUDIO NO SE PUEDA REALIZAR SE PROPORCIONARA UN VALE.",image:"3.jpg", price:2200},
+				{ estudio:"RESONANCIA MAGNETICA NUCLEAR DE CODO SIMPLE Y CONTRASTADA",suggestion:"PREVIA CITA  (IMPORTANTE: EL PACIENTE TENDRA QUE VENIR A LAS INSTALACIONES PARA SABER SI ALERGICO ALGUN MEDICAMENTO) AGENDAR CON $200, AYUNO DE 8 HORAS,  EL ESTUDIO DURA 1 HORA APROXIMADAMENTE, NO MOVERSE, MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000, MENCIONAR AL PACIENTE SI TIENE UN IMPLANTE METÁLICO, TRAER ROPA CÓMODA. EN CASO DE QUE EL ESTUDIO NO SE PUEDA REALIZAR SE PROPORCIONARA UN VALE. (FIRMAR RESPONSIVA).",image:"3.jpg", price:3500},
+				{ estudio:"RESONANCIA MAGNETICA NUCLEAR DE CUELLO SIMPLE ",suggestion:"PREVIA CITA (PRESENTAR ORDEN MEDICA) AGENDAR CON $200, EL ESTUDIO DURA 1 HORA APROXIMADAMENTE, NO MOVERSE, MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000, MENCIONAR AL PACIENTE SI TIENE UN IMPLANTE METÁLICO, TRAER ROPA CÓMODA. EN CASO DE QUE EL ESTUDIO NO SE PUEDA REALIZAR SE PROPORCIONARA UN VALE.",image:"3.jpg", price:2200},
+				{ estudio:"RESONANCIA MAGNETICA NUCLEAR DE CUELLO SIMPLE Y CONTRASTADA",suggestion:"PREVIA CITA  (IMPORTANTE: EL PACIENTE TENDRA QUE VENIR A LAS INSTALACIONES PARA SABER SI ALERGICO ALGUN MEDICAMENTO) AGENDAR CON $200, AYUNO DE 8 HORAS,  EL ESTUDIO DURA 1 HORA APROXIMADAMENTE, NO MOVERSE, MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000, MENCIONAR AL PACIENTE SI TIENE UN IMPLANTE METÁLICO, TRAER ROPA CÓMODA. EN CASO DE QUE EL ESTUDIO NO SE PUEDA REALIZAR SE PROPORCIONARA UN VALE. (FIRMAR RESPONSIVA).",image:"3.jpg", price:3500},
+				{ estudio:"RESONANCIA MAGNETICA NUCLEAR DE MUSLO SIMPLE",suggestion:"PREVIA CITA (PRESENTAR ORDEN MEDICA) AGENDAR CON $200, EL ESTUDIO DURA 1 HORA APROXIMADAMENTE, NO MOVERSE, MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000, MENCIONAR AL PACIENTE SI TIENE UN IMPLANTE METÁLICO, TRAER ROPA CÓMODA. EN CASO DE QUE EL ESTUDIO NO SE PUEDA REALIZAR SE PROPORCIONARA UN VALE.",image:"3.jpg", price:2200},
+				{ estudio:"RESONANCIA MAGNETICA NUCLEAR DE MUSLO SIMPLE Y CONTRASTADA",suggestion:"PREVIA CITA  (IMPORTANTE: EL PACIENTE TENDRA QUE VENIR A LAS INSTALACIONES PARA SABER SI ALERGICO ALGUN MEDICAMENTO) AGENDAR CON $200, AYUNO DE 8 HORAS,  EL ESTUDIO DURA 1 HORA APROXIMADAMENTE, NO MOVERSE, MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000, MENCIONAR AL PACIENTE SI TIENE UN IMPLANTE METÁLICO, TRAER ROPA CÓMODA. EN CASO DE QUE EL ESTUDIO NO SE PUEDA REALIZAR SE PROPORCIONARA UN VALE. (FIRMAR RESPONSIVA).",image:"3.jpg", price:3500},
+				{ estudio:"RESONANCIA MAGNETICA NUCLEAR DE OIDOS SIMPLE",suggestion:"PREVIA CITA (PRESENTAR ORDEN MEDICA) AGENDAR CON $200, EL ESTUDIO DURA 1 HORA APROXIMADAMENTE, NO MOVERSE, MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000, MENCIONAR AL PACIENTE SI TIENE UN IMPLANTE METÁLICO, TRAER ROPA CÓMODA. EN CASO DE QUE EL ESTUDIO NO SE PUEDA REALIZAR SE PROPORCIONARA UN VALE.",image:"3.jpg", price:2200},
+				{ estudio:"RESONANCIA MAGNETICA NUCLEAR DE OIDOS SIMPLE Y CONTRASTADA",suggestion:"PREVIA CITA  (IMPORTANTE: EL PACIENTE TENDRA QUE VENIR A LAS INSTALACIONES PARA SABER SI ALERGICO ALGUN MEDICAMENTO) AGENDAR CON $200, AYUNO DE 8 HORAS,  EL ESTUDIO DURA 1 HORA APROXIMADAMENTE, NO MOVERSE, MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000, MENCIONAR AL PACIENTE SI TIENE UN IMPLANTE METÁLICO, TRAER ROPA CÓMODA. EN CASO DE QUE EL ESTUDIO NO SE PUEDA REALIZAR SE PROPORCIONARA UN VALE. (FIRMAR RESPONSIVA).",image:"3.jpg", price:3500},
+				{ estudio:"RESONANCIA MAGNETICA NUCLEAR DE TOBILLO SIMPLE",suggestion:"PREVIA CITA (PRESENTAR ORDEN MEDICA) AGENDAR CON $200, EL ESTUDIO DURA 1 HORA APROXIMADAMENTE, NO MOVERSE, MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000, MENCIONAR AL PACIENTE SI TIENE UN IMPLANTE METÁLICO, TRAER ROPA CÓMODA. EN CASO DE QUE EL ESTUDIO NO SE PUEDA REALIZAR SE PROPORCIONARA UN VALE.",image:"3.jpg", price:2200},
+				{ estudio:"RESONANCIA MAGNETICA NUCLEAR DE TOBILLO SIMPLE Y CONTRASTADA",suggestion:"PREVIA CITA  (IMPORTANTE: EL PACIENTE TENDRA QUE VENIR A LAS INSTALACIONES PARA SABER SI ALERGICO ALGUN MEDICAMENTO) AGENDAR CON $200, AYUNO DE 8 HORAS,  EL ESTUDIO DURA 1 HORA APROXIMADAMENTE, NO MOVERSE, MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000, MENCIONAR AL PACIENTE SI TIENE UN IMPLANTE METÁLICO, TRAER ROPA CÓMODA. EN CASO DE QUE EL ESTUDIO NO SE PUEDA REALIZAR SE PROPORCIONARA UN VALE. (FIRMAR RESPONSIVA).",image:"3.jpg", price:3500},
+				{ estudio:"RESONANCIA MAGNETICA NUCLEAR DE HOMBRO SIMPLE ",suggestion:"PREVIA CITA (PRESENTAR ORDEN MEDICA) AGENDAR CON $200, EL ESTUDIO DURA 1 HORA APROXIMADAMENTE, NO MOVERSE, MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000, MENCIONAR AL PACIENTE SI TIENE UN IMPLANTE METÁLICO, TRAER ROPA CÓMODA. EN CASO DE QUE EL ESTUDIO NO SE PUEDA REALIZAR SE PROPORCIONARA UN VALE.",image:"3.jpg", price:2200},
+				{ estudio:"RESONANCIA MAGNETICA NUCLEAR DE HOMBRO SIMPLE Y CONTRASTADA",suggestion:"PREVIA CITA  (IMPORTANTE: EL PACIENTE TENDRA QUE VENIR A LAS INSTALACIONES PARA SABER SI ALERGICO ALGUN MEDICAMENTO) AGENDAR CON $200, AYUNO DE 8 HORAS,  EL ESTUDIO DURA 1 HORA APROXIMADAMENTE, NO MOVERSE, MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000, MENCIONAR AL PACIENTE SI TIENE UN IMPLANTE METÁLICO, TRAER ROPA CÓMODA. EN CASO DE QUE EL ESTUDIO NO SE PUEDA REALIZAR SE PROPORCIONARA UN VALE. (FIRMAR RESPONSIVA).",image:"3.jpg", price:3500},
+				{ estudio:"RESONANCIA MAGNETICA NUCLEAR DE CRANEO SIMPLE",suggestion:"PREVIA CITA (PRESENTAR ORDEN MEDICA) AGENDAR CON $200, EL ESTUDIO DURA 1 HORA APROXIMADAMENTE, NO MOVERSE, MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000, MENCIONAR AL PACIENTE SI TIENE UN IMPLANTE METÁLICO, TRAER ROPA CÓMODA. EN CASO DE QUE EL ESTUDIO NO SE PUEDA REALIZAR SE PROPORCIONARA UN VALE.",image:"3.jpg", price:2200},
+				{ estudio:"RESONANCIA MAGNETICA NUCLEAR DE CRANEO SIMPLE Y CONTRASTADA",suggestion:"PREVIA CITA  (IMPORTANTE: EL PACIENTE TENDRA QUE VENIR A LAS INSTALACIONES PARA SABER SI ALERGICO ALGUN MEDICAMENTO) AGENDAR CON $200, AYUNO DE 8 HORAS,  EL ESTUDIO DURA 1 HORA APROXIMADAMENTE, NO MOVERSE, MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000, MENCIONAR AL PACIENTE SI TIENE UN IMPLANTE METÁLICO, TRAER ROPA CÓMODA. EN CASO DE QUE EL ESTUDIO NO SE PUEDA REALIZAR SE PROPORCIONARA UN VALE. (FIRMAR RESPONSIVA).",image:"3.jpg", price:3500},
+				{ estudio:"RESONANCIA MAGNETICA NUCLEAR DE MANO SIMPLE ",suggestion:"PREVIA CITA (PRESENTAR ORDEN MEDICA) AGENDAR CON $200, EL ESTUDIO DURA 1 HORA APROXIMADAMENTE, NO MOVERSE, MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000, MENCIONAR AL PACIENTE SI TIENE UN IMPLANTE METÁLICO, TRAER ROPA CÓMODA. EN CASO DE QUE EL ESTUDIO NO SE PUEDA REALIZAR SE PROPORCIONARA UN VALE.",image:"3.jpg", price:2200},
+				{ estudio:"RESONANCIA MAGNETICA NUCLEAR DE MANO SIMPLE Y CONTRASTADA",suggestion:"PREVIA CITA  (IMPORTANTE: EL PACIENTE TENDRA QUE VENIR A LAS INSTALACIONES PARA SABER SI ALERGICO ALGUN MEDICAMENTO) AGENDAR CON $200, AYUNO DE 8 HORAS,  EL ESTUDIO DURA 1 HORA APROXIMADAMENTE, NO MOVERSE, MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000, MENCIONAR AL PACIENTE SI TIENE UN IMPLANTE METÁLICO, TRAER ROPA CÓMODA. EN CASO DE QUE EL ESTUDIO NO SE PUEDA REALIZAR SE PROPORCIONARA UN VALE. (FIRMAR RESPONSIVA).",image:"3.jpg", price:3500},
+				{ estudio:"RESONANCIA MAGNETICA NUCLEAR DE COLUMNA CERVICAL SIMPLE",suggestion:"PREVIA CITA (PRESENTAR ORDEN MEDICA) AGENDAR CON $200, EL ESTUDIO DURA 1 HORA APROXIMADAMENTE, NO MOVERSE, MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000, MENCIONAR AL PACIENTE SI TIENE UN IMPLANTE METÁLICO, TRAER ROPA CÓMODA. EN CASO DE QUE EL ESTUDIO NO SE PUEDA REALIZAR SE PROPORCIONARA UN VALE.",image:"3.jpg", price:2200},
+				{ estudio:"RESONANCIA MAGNETICA NUCLEAR DE COLUMNA CERVICAL SIMPLE Y CONTRASTADA",suggestion:"PREVIA CITA  (IMPORTANTE: EL PACIENTE TENDRA QUE VENIR A LAS INSTALACIONES PARA SABER SI ALERGICO ALGUN MEDICAMENTO) AGENDAR CON $200, AYUNO DE 8 HORAS,  EL ESTUDIO DURA 1 HORA APROXIMADAMENTE, NO MOVERSE, MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000, MENCIONAR AL PACIENTE SI TIENE UN IMPLANTE METÁLICO, TRAER ROPA CÓMODA. EN CASO DE QUE EL ESTUDIO NO SE PUEDA REALIZAR SE PROPORCIONARA UN VALE. (FIRMAR RESPONSIVA).",image:"3.jpg", price:3500},
+				{ estudio:"RESONANCIA MAGNETICA NUCLEAR DE MUSLO SIMPLE",suggestion:"PREVIA CITA (PRESENTAR ORDEN MEDICA) AGENDAR CON $200, EL ESTUDIO DURA 1 HORA APROXIMADAMENTE, NO MOVERSE, MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000, MENCIONAR AL PACIENTE SI TIENE UN IMPLANTE METÁLICO, TRAER ROPA CÓMODA. EN CASO DE QUE EL ESTUDIO NO SE PUEDA REALIZAR SE PROPORCIONARA UN VALE.",image:"3.jpg", price:2200},
+				{ estudio:"RESONANCIA MAGNETICA NUCLEAR DE MUSLO SIMPLE Y CONTRASTADA",suggestion:"PREVIA CITA  (IMPORTANTE: EL PACIENTE TENDRA QUE VENIR A LAS INSTALACIONES PARA SABER SI ALERGICO ALGUN MEDICAMENTO) AGENDAR CON $200, AYUNO DE 8 HORAS,  EL ESTUDIO DURA 1 HORA APROXIMADAMENTE, NO MOVERSE, MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000, MENCIONAR AL PACIENTE SI TIENE UN IMPLANTE METÁLICO, TRAER ROPA CÓMODA. EN CASO DE QUE EL ESTUDIO NO SE PUEDA REALIZAR SE PROPORCIONARA UN VALE. (FIRMAR RESPONSIVA).",image:"3.jpg", price:3500},
+				{ estudio:"RESONANCIA MAGNETICA NUCLEAR DE RODILLA SIMPLE",suggestion:"PREVIA CITA (PRESENTAR ORDEN MEDICA) AGENDAR CON $200, EL ESTUDIO DURA 1 HORA APROXIMADAMENTE, NO MOVERSE, MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000, MENCIONAR AL PACIENTE SI TIENE UN IMPLANTE METÁLICO, TRAER ROPA CÓMODA. EN CASO DE QUE EL ESTUDIO NO SE PUEDA REALIZAR SE PROPORCIONARA UN VALE.",image:"3.jpg", price:2200},
+				{ estudio:"RESONANCIA MAGNETICA NUCLEAR DE RODILLA SIMPLE Y CONTRASTADA",suggestion:"PREVIA CITA  (IMPORTANTE: EL PACIENTE TENDRA QUE VENIR A LAS INSTALACIONES PARA SABER SI ALERGICO ALGUN MEDICAMENTO) AGENDAR CON $200, AYUNO DE 8 HORAS,  EL ESTUDIO DURA 1 HORA APROXIMADAMENTE, NO MOVERSE, MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000, MENCIONAR AL PACIENTE SI TIENE UN IMPLANTE METÁLICO, TRAER ROPA CÓMODA. EN CASO DE QUE EL ESTUDIO NO SE PUEDA REALIZAR SE PROPORCIONARA UN VALE. (FIRMAR RESPONSIVA).",image:"3.jpg", price:3500},
+				{ estudio:"RESONANCIA MAGNETICA NUCLEAR DE TIBIA-PERONE SIMPLE ",suggestion:"PREVIA CITA (PRESENTAR ORDEN MEDICA) AGENDAR CON $200, EL ESTUDIO DURA 1 HORA APROXIMADAMENTE, NO MOVERSE, MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000, MENCIONAR AL PACIENTE SI TIENE UN IMPLANTE METÁLICO, TRAER ROPA CÓMODA. EN CASO DE QUE EL ESTUDIO NO SE PUEDA REALIZAR SE PROPORCIONARA UN VALE.",image:"3.jpg", price:2200},
+				{ estudio:"RESONANCIA MAGNETICA NUCLEAR DE TIBIA-PERONE SIMPLE Y CONTRASTADA",suggestion:"PREVIA CITA  (IMPORTANTE: EL PACIENTE TENDRA QUE VENIR A LAS INSTALACIONES PARA SABER SI ALERGICO ALGUN MEDICAMENTO) AGENDAR CON $200, AYUNO DE 8 HORAS,  EL ESTUDIO DURA 1 HORA APROXIMADAMENTE, NO MOVERSE, MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000, MENCIONAR AL PACIENTE SI TIENE UN IMPLANTE METÁLICO, TRAER ROPA CÓMODA. EN CASO DE QUE EL ESTUDIO NO SE PUEDA REALIZAR SE PROPORCIONARA UN VALE. (FIRMAR RESPONSIVA).",image:"3.jpg", price:3500},
+				{ estudio:"RESONANCIA MAGNETICA NUCLEAR DE COLUMNA DORSAL SIMPLE",suggestion:"PREVIA CITA (PRESENTAR ORDEN MEDICA) AGENDAR CON $200, EL ESTUDIO DURA 1 HORA APROXIMADAMENTE, NO MOVERSE, MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000, MENCIONAR AL PACIENTE SI TIENE UN IMPLANTE METÁLICO, TRAER ROPA CÓMODA. EN CASO DE QUE EL ESTUDIO NO SE PUEDA REALIZAR SE PROPORCIONARA UN VALE.",image:"3.jpg", price:2200},
+				{ estudio:"RESONANCIA MAGNETICA NUCLEAR DE COLUMNA DORSAL SIMPLE Y CONTRASTADA",suggestion:"PREVIA CITA  (IMPORTANTE: EL PACIENTE TENDRA QUE VENIR A LAS INSTALACIONES PARA SABER SI ALERGICO ALGUN MEDICAMENTO) AGENDAR CON $200, AYUNO DE 8 HORAS,  EL ESTUDIO DURA 1 HORA APROXIMADAMENTE, NO MOVERSE, MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000, MENCIONAR AL PACIENTE SI TIENE UN IMPLANTE METÁLICO, TRAER ROPA CÓMODA. EN CASO DE QUE EL ESTUDIO NO SE PUEDA REALIZAR SE PROPORCIONARA UN VALE. (FIRMAR RESPONSIVA).",image:"3.jpg", price:3500},
+				{ estudio:"RESONANCIA MAGNETICA NUCLEAR DE COLUMA LUMBAR SIMPLE",suggestion:"PREVIA CITA (PRESENTAR ORDEN MEDICA) AGENDAR CON $200, EL ESTUDIO DURA 1 HORA APROXIMADAMENTE, NO MOVERSE, MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000, MENCIONAR AL PACIENTE SI TIENE UN IMPLANTE METÁLICO, TRAER ROPA CÓMODA. EN CASO DE QUE EL ESTUDIO NO SE PUEDA REALIZAR SE PROPORCIONARA UN VALE.",image:"3.jpg", price:2200},
+				{ estudio:"RESONANCIA MAGNETICA NUCLEAR DE COLUMNA LUMBAR SIMPLE Y CONTRASTADA",suggestion:"PREVIA CITA  (IMPORTANTE: EL PACIENTE TENDRA QUE VENIR A LAS INSTALACIONES PARA SABER SI ALERGICO ALGUN MEDICAMENTO) AGENDAR CON $200, AYUNO DE 8 HORAS,  EL ESTUDIO DURA 1 HORA APROXIMADAMENTE, NO MOVERSE, MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000, MENCIONAR AL PACIENTE SI TIENE UN IMPLANTE METÁLICO, TRAER ROPA CÓMODA. EN CASO DE QUE EL ESTUDIO NO SE PUEDA REALIZAR SE PROPORCIONARA UN VALE. (FIRMAR RESPONSIVA).",image:"3.jpg", price:3500},
+				{ estudio:"RESONANCIA MAGNETICA NUCLEAR DE HIPOFISIS SIMPLE ",suggestion:"PREVIA CITA (PRESENTAR ORDEN MEDICA) AGENDAR CON $200, EL ESTUDIO DURA 1 HORA APROXIMADAMENTE, NO MOVERSE, MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000, MENCIONAR AL PACIENTE SI TIENE UN IMPLANTE METÁLICO, TRAER ROPA CÓMODA. EN CASO DE QUE EL ESTUDIO NO SE PUEDA REALIZAR SE PROPORCIONARA UN VALE.",image:"3.jpg", price:2200},
+				{ estudio:"RESONANCIA MAGNETICA NUCLEAR DE HIPOFISIS SIMPLE Y CONTRASTADA (FIRMAR RESPONSIVA).",suggestion:"PREVIA CITA  (IMPORTANTE: EL PACIENTE TENDRA QUE VENIR A LAS INSTALACIONES PARA SABER SI ALERGICO ALGUN MEDICAMENTO) AGENDAR CON $200, AYUNO DE 8 HORAS,  EL ESTUDIO DURA 1 HORA APROXIMADAMENTE, NO MOVERSE, MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000, MENCIONAR AL PACIENTE SI TIENE UN IMPLANTE METÁLICO, TRAER ROPA CÓMODA. EN CASO DE QUE EL ESTUDIO NO SE PUEDA REALIZAR SE PROPORCIONARA UN VALE. (FIRMAR RESPONSIVA).",image:"3.jpg", price:3500},
+				{ estudio:"RESONANCIA MAGNETICA NUCLEAR DE EXTREMIDADES PEQUEÑAS SIMPLE Y CONTRASTADA",suggestion:"PREVIA CITA (PRESENTAR ORDEN MEDICA) AGENDAR CON $200, EL ESTUDIO DURA 1 HORA APROXIMADAMENTE, NO MOVERSE, MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000, MENCIONAR AL PACIENTE SI TIENE UN IMPLANTE METÁLICO, TRAER ROPA CÓMODA. EN CASO DE QUE EL ESTUDIO NO SE PUEDA REALIZAR SE PROPORCIONARA UN VALE.",image:"3.jpg", price:2200},
+				{ estudio:"RESONANCIA MAGNETICA NUCLEAR DE EXTREMIDADES PEQUEÑAS SIMPLE Y  CONTRASTADA",suggestion:"PREVIA CITA  (IMPORTANTE: EL PACIENTE TENDRA QUE VENIR A LAS INSTALACIONES PARA SABER SI ALERGICO ALGUN MEDICAMENTO) AGENDAR CON $200, AYUNO DE 8 HORAS,  EL ESTUDIO DURA 1 HORA APROXIMADAMENTE, NO MOVERSE, MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000, MENCIONAR AL PACIENTE SI TIENE UN IMPLANTE METÁLICO, TRAER ROPA CÓMODA. EN CASO DE QUE EL ESTUDIO NO SE PUEDA REALIZAR SE PROPORCIONARA UN VALE. (FIRMAR RESPONSIVA).",image:"3.jpg", price:3500},
+				{ estudio:"RESONANCIA MAGNETICA NUCLEAR DE ORBITAS SIMPLE ",suggestion:"PREVIA CITA (PRESENTAR ORDEN MEDICA) AGENDAR CON $200, EL ESTUDIO DURA 1 HORA APROXIMADAMENTE, NO MOVERSE, MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000, MENCIONAR AL PACIENTE SI TIENE UN IMPLANTE METÁLICO, TRAER ROPA CÓMODA. EN CASO DE QUE EL ESTUDIO NO SE PUEDA REALIZAR SE PROPORCIONARA UN VALE.",image:"3.jpg", price:2200},
+				{ estudio:"RESONANCIA MAGNETICA NUCLEAR DE ORBITAS SIMPLE Y CONTRASTADA",suggestion:"PREVIA CITA  (IMPORTANTE: EL PACIENTE TENDRA QUE VENIR A LAS INSTALACIONES PARA SABER SI ALERGICO ALGUN MEDICAMENTO) AGENDAR CON $200, AYUNO DE 8 HORAS,  EL ESTUDIO DURA 1 HORA APROXIMADAMENTE, NO MOVERSE, MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000, MENCIONAR AL PACIENTE SI TIENE UN IMPLANTE METÁLICO, TRAER ROPA CÓMODA. EN CASO DE QUE EL ESTUDIO NO SE PUEDA REALIZAR SE PROPORCIONARA UN VALE. (FIRMAR RESPONSIVA).",image:"3.jpg", price:3500},
+				{ estudio:"RESONANCIA MAGNETICA NUCLEAR DE SENOS PARANASALES SIMPLE ",suggestion:"PREVIA CITA (PRESENTAR ORDEN MEDICA) AGENDAR CON $200, EL ESTUDIO DURA 1 HORA APROXIMADAMENTE, NO MOVERSE, MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000, MENCIONAR AL PACIENTE SI TIENE UN IMPLANTE METÁLICO, TRAER ROPA CÓMODA. EN CASO DE QUE EL ESTUDIO NO SE PUEDA REALIZAR SE PROPORCIONARA UN VALE.",image:"3.jpg", price:2200},
+				{ estudio:"RESONANCIA MAGNETICA NUCLEAR DE SENOS PARANASALES SIMPLE Y CONTRASTADA",suggestion:"PREVIA CITA  (IMPORTANTE: EL PACIENTE TENDRA QUE VENIR A LAS INSTALACIONES PARA SABER SI ALERGICO ALGUN MEDICAMENTO) AGENDAR CON $200, AYUNO DE 8 HORAS,  EL ESTUDIO DURA 1 HORA APROXIMADAMENTE, NO MOVERSE, MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000, MENCIONAR AL PACIENTE SI TIENE UN IMPLANTE METÁLICO, TRAER ROPA CÓMODA. EN CASO DE QUE EL ESTUDIO NO SE PUEDA REALIZAR SE PROPORCIONARA UN VALE. (FIRMAR RESPONSIVA).",image:"3.jpg", price:3500},
+				{ estudio:"RESONANCIA MAGNETICA NUCLEAR DE PELVIS SIMPLE ",suggestion:"PREVIA CITA (PRESENTAR ORDEN MEDICA) AGENDAR CON $200, EL ESTUDIO DURA 1 HORA APROXIMADAMENTE, NO MOVERSE, MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000, MENCIONAR AL PACIENTE SI TIENE UN IMPLANTE METÁLICO, TRAER ROPA CÓMODA. EN CASO DE QUE EL ESTUDIO NO SE PUEDA REALIZAR SE PROPORCIONARA UN VALE.",image:"3.jpg", price:2200},
+				{ estudio:"RESONANCIA MAGNETICA NUCLEAR DE PELVIS SIMPLE Y CONTRASTADA",suggestion:"PREVIA CITA  (IMPORTANTE: EL PACIENTE TENDRA QUE VENIR A LAS INSTALACIONES PARA SABER SI ALERGICO ALGUN MEDICAMENTO) AGENDAR CON $200, AYUNO DE 8 HORAS,  EL ESTUDIO DURA 1 HORA APROXIMADAMENTE, NO MOVERSE, MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000, MENCIONAR AL PACIENTE SI TIENE UN IMPLANTE METÁLICO, TRAER ROPA CÓMODA. EN CASO DE QUE EL ESTUDIO NO SE PUEDA REALIZAR SE PROPORCIONARA UN VALE. (FIRMAR RESPONSIVA).",image:"3.jpg", price:3500},
+				{ estudio:"RESONANCIA MAGNETICA NUCLEAR DE SILLA TURCA SIMPLE Y CONTRASTADA",suggestion:"PREVIA CITA  (IMPORTANTE: EL PACIENTE TENDRA QUE VENIR A LAS INSTALACIONES PARA SABER SI ALERGICO ALGUN MEDICAMENTO) AGENDAR CON $200, AYUNO DE 8 HORAS,  EL ESTUDIO DURA 1 HORA APROXIMADAMENTE, NO MOVERSE, MENORES DE EDAD O PERSONAS 3RA EDAD QUE REQUIERAN ANESTESIA TENDRA UN COSTO DE $2,000, MENCIONAR AL PACIENTE SI TIENE UN IMPLANTE METÁLICO, TRAER ROPA CÓMODA. EN CASO DE QUE EL ESTUDIO NO SE PUEDA REALIZAR SE PROPORCIONARA UN VALE. (FIRMAR RESPONSIVA).",image:"3.jpg", price:3500},
+				{ estudio:"CISTOGRAFIA MICCIONAL (MUJERES)",suggestion:"PREVIA CITA, PRESENTAR ORDEN MEDICA, AGENDAR CON $200, NO REQUIERE AYUNO, APLICAR LAXANTE ENEMA VIA RECTAL 4 HORAS ANTES DEL ESTUDIO, PRESENTARSE ASEADO.(FIRMAR RESPONSIVA).",image:"3.jpg", price:2350},
+				{ estudio:"COLANGIOGRAFIA POR SONDA EN T.",suggestion:"PREVIA CITA, PRESENTAR ORDEN MEDICA, AGENDAR CON $200, AYUNO MINIMO DE 8 HORAS Y PRESENTARSE ASEADO.(FIRMAR RESPONSIVA).",image:"3.jpg", price:2200},
+				{ estudio:"COLON POR ENEMA",suggestion:"PREVIA CITA, PRESENTAR ORDEN MEDICA, AGENDAR CON $200, PRESENTARSE EN AYUNO Y ASEADO, UN DIA ANTES DEL ESTUDIO DIETA LIQUIDA ( AGUA ,TE,GELATINA,CALDOS, SIN CARNE NI TORTILLA, SIN VERDURA) A LAS 4 P.M TOMAR LAXANTE ( FLEET ORAL CON JUGO O AGUA SI ES DIABETICO). POSTERIORMENTE A LAS 10PM APLICAR LAXANTE (ENEMA) VIA RECTAL, Y EL DIA DEL ESTUDIO A LAS 5AM APLICAR LAXANTE (ENEMA) VIA RECTAL.(FIRMAR RESPONSIVA).",image:"3.jpg", price:2200},
+				{ estudio:"ELECTRO-ENCEFALOGRAMA",suggestion:"PREVIA CITA, PRESENTAR ORDEN MEDICA, AGENDAR CON $200, NO REQUIERE AYUNO, UN DIA ANTES DEL ESTUDIO DESVELAR AL PACIENTE DESDE LAS 10PM HASTA LA HORA DEL ESTUDIO, ASEO PREVIO, LAVARSE EL CABELLO CON JABON ZOTE ( NO UTILIZAR SHAMPOO, GEL, PERFUMES, NI CREMAS PARA CABELLO), NO TOMAR BEBIDAS ENEGIZATES( BEBIDAS ALCOHOLICAS, CHOCOLATES, PARA MANTENERSE DESPIERTO, NO FUMAR, ROPA COMODA, EL ESTUDIO DURA 1 HORA Y MEDIA APROXIMADAMENTE, Y SE ENTREGA EN 5 DIAS HABILES. NO SE REALIZA SI EL PACIENTE PRESENTA ALGUNA ENFERMEDAD QUE INTERFIERA EL SUEÑO (FIRMAR RESPONSIVA).",image:"3.jpg", price:1300},
+				{ estudio:"ESOFAGOGRAMA",suggestion:"PREVIA CITA, PRESENTAR ORDEN MEDICA, AGENDAR CON $200, ADULTOS AYUNO 8 HORAS Y NIÑOS DE 6 HORAS, PRESENTARSE ASEADO. (FIRMAR RESPONSIVA).",image:"3.jpg", price:2350},
+				{ estudio:"FISTULOGRAFIA",suggestion:"PREVIA CITA, PRESENTAR ORDEN MEDICA, AGENDAR CON $200, NO REQUIERE AYUNO Y PRESENTARSE ASEADO. (FIRMAR RESPONSIVA).",image:"3.jpg", price:2200},
+				{ estudio:"HISTEROSALPINGOGRAFIA",suggestion:"PREVIA CITA, PRESENTAR ORDEN MEDICA, AGENDAR CON $200, PRESENTAR UNA TOALLA SANITARIA, NO REQUIER AYUNO, PRESENTRASE 3 O 4 DIAS DESPUES DE SU PERIODO MENSTRUAL, APLICAR LAXANTE ENEMA VIA RECTAL 4 HORAS ANTES DEL ESTUDIO, PRESENTARSE ASEADO.(FIRMAR RESPONSIVA).",image:"3.jpg", price:2200},
+				{ estudio:"SERIE ESOFAGOGASTRODUODENAL",suggestion:"PREVIA CITA, PRESENTAR ORDEN MEDICA, AGENDAR CON $200, EN BEBES 3 HORAS DE AYUNO MINIMO (PRESENTAR 2 BIBERONES UNO CON TÉ DE MANZANILLA O MANZANA Y EL OTRO VACIO) EN NIÑOS MAYORES DE 6 AÑOS PRESENTARSE CON 6 HORAS DE AYUNO MINIMO Y ADULTOS 8 HORAS DE AYUNO MINIMO (PRESENTAR AGUA MINERAL DE 350 ML), PRESENTAR ROPA COMODA SIN METALES. (FIRMAR RESPONSIVA).",image:"3.jpg", price:2200},
+				{ estudio:"TRANSITO INTESTINAL",suggestion:"PREVIA CITA, PRESENTAR ORDEN MEDICA, AGENDAR CON $200, AYUNO DE 8 HORAS MINIMO Y PRESENTARSE ASEADO. (FIRMAR RESPONSIVA).",image:"3.jpg", price:2200},
+				{ estudio:"URETROCISTOGRAFIA (HOMBRES)",suggestion:"PREVIA CITA, PRESENTAR ORDEN MEDICA, AGENDAR CON $200, NO REQUIERE AYUNO, APLICAR LAXANTE ENEMA VIA RECTAL 4 HORAS ANTES DEL ESTUDIO, PRESENTARSE ASEADO.(FIRMAR RESPONSIVA).",image:"3.jpg", price:2200},
+				{ estudio:"URETROCISTOGRAFIA (MUJERES)",suggestion:"PREVIA CITA, PRESENTAR ORDEN MEDICA, AGENDAR CON $200, NO REQUIERE AYUNO, APLICAR LAXANTE ENEMA VIA RECTAL 4 HORAS ANTES DEL ESTUDIO, NO ESTAR EN SU PERIODO MENSTRUAL, PRESENTARSE ASEADO.(FIRMAR RESPONSIVA).",image:"3.jpg", price:2200},
+				{ estudio:"UROGRAFIA EXCRETORA",suggestion:"PREVIA CITA, PRESENTAR ORDEN MEDICA, PREGUNTAR AL PACIENTE SI ES ALERGICO A ALGUN MEDICAMENTO, SE AGENDA CON $200, PRESENTARSE  EN AYUNO Y ASEADO, UN DIA ANTES DEL ESTUDIO DIETA LIQUIDA ( AGUA ,TE,GELATINA,CALDOS, SIN CARNE NI TORTILLA, SIN VERDURA) A LAS 4 P.M TOMAR LAXANTE ( FLEET ORAL CON JUGO O AGUA SI ES DIABETICO). POSTERIORMENTE A LAS 10PM APLICAR LAXANTE (ENEMA) VIA RECTAL, Y EL DIA DEL ESTUDIO A LAS 5AM APLICAR LAXANTE (ENEMA) VIA RECTAL. (FIRMAR RESPONSIVA).",image:"3.jpg", price:2200},
+				{ estudio:"ECOCARDIOGRAMA",suggestion:"PREVIA CITA, PRESENTAR ORDEN MEDICA, VENIR AGENDAR CON $200 A RECEPCION Y SE LE DARANA LAS INDICACIONES CORRESPONDIENTES",image:"3.jpg", price:2000}
+		];
+	</script>
+
+    </body>
+</html>

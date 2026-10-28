@@ -1,0 +1,219 @@
+#site-header {
+	min-height: 155px;
+}
+
+.viazcan-header {
+	--viazcan-blue: #45a6d6;
+	--viazcan-green: #96c43b;
+	--viazcan-ink: #24343c;
+	--viazcan-line: #e4edf0;
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	z-index: 1030;
+	border-top: 10px solid var(--viazcan-green);
+	background: #fff;
+	box-shadow: 0 4px 20px rgb(36 52 60 / 7%);
+	font-family: 'Jost', sans-serif;
+	letter-spacing: 0;
+}
+
+.viazcan-header-social {
+	border-bottom: 1px solid var(--viazcan-line);
+	background: #f3f9fc;
+}
+
+.viazcan-social-link {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	height: 40px;
+	color: #287ba3;
+	font-size: 17px;
+	text-decoration: none;
+	transition: background-color 160ms ease, color 160ms ease;
+}
+
+.viazcan-social-link[aria-disabled="true"] {
+	cursor: default;
+}
+
+.viazcan-social-link[href]:hover {
+	background: #e2f1f8;
+	color: #185e80;
+}
+
+.viazcan-social-whatsapp {
+	color: #337841;
+}
+
+.viazcan-header .viazcan-navbar {
+	padding: 16px 0;
+}
+
+.viazcan-header-brand {
+	flex-shrink: 0;
+	margin: 0 32px 0 0;
+	padding: 0;
+}
+
+.viazcan-header-brand img {
+	display: block;
+	width: 180px;
+	max-width: 100%;
+	height: auto;
+	aspect-ratio: 224 / 89;
+}
+
+.viazcan-header .navbar-nav {
+	gap: 12px;
+}
+
+.viazcan-header .navbar-nav .nav-link {
+	position: relative;
+	padding: 14px 12px;
+	color: var(--viazcan-ink);
+	font-size: 17px;
+	font-weight: 500;
+	text-decoration: none;
+	white-space: nowrap;
+	border-radius: 6px;
+	transition: color 220ms ease, background-color 220ms ease;
+}
+
+.viazcan-header .navbar-nav .nav-link::after {
+	position: absolute;
+	right: 12px;
+	bottom: 7px;
+	left: 12px;
+	height: 3px;
+	background: var(--viazcan-green);
+	content: '';
+	transform: scaleX(0);
+	transform-origin: center;
+	transition: transform 260ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.viazcan-header .navbar-nav .nav-link:hover,
+.viazcan-header .navbar-nav .nav-link:focus-visible {
+	color: #257da7;
+	background-color: #f0f8fc;
+}
+
+.viazcan-header .navbar-nav .nav-link.active,
+.viazcan-header .navbar-nav .nav-link[aria-current="page"] {
+	color: #257da7;
+	background-color: #e5f2f8;
+}
+
+.viazcan-header .navbar-nav .nav-link:hover::after,
+.viazcan-header .navbar-nav .nav-link:focus-visible::after,
+.viazcan-header .navbar-nav .nav-link.active::after,
+.viazcan-header .navbar-nav .nav-link[aria-current="page"]::after {
+	transform: scaleX(1);
+}
+
+.viazcan-header-cart {
+	display: inline-flex;
+	flex-shrink: 0;
+	align-items: center;
+	justify-content: center;
+	width: 60px;
+	height: 48px;
+	margin-left: 24px;
+	border-left: 1px solid var(--viazcan-line);
+	color: #257da7;
+	font-size: 26px;
+	text-decoration: none;
+	transition: background-color 160ms ease;
+}
+
+.viazcan-header-cart:hover {
+	background: #f0f8fc;
+	color: #185e80;
+}
+
+.viazcan-header-cart[aria-current="page"] {
+	background: #e5f2f8;
+	color: #185e80;
+}
+
+.viazcan-header .viazcan-menu-toggle {
+	display: none;
+	align-items: center;
+	justify-content: center;
+	width: 44px;
+	height: 44px;
+	padding: 0;
+	border: 1px solid var(--viazcan-line);
+	border-radius: 6px;
+	color: var(--viazcan-ink);
+	font-size: 28px;
+}
+
+.viazcan-header a:focus-visible,
+.viazcan-header button:focus-visible {
+	outline: 3px solid var(--viazcan-blue);
+	outline-offset: 3px;
+	box-shadow: none;
+}
+
+@media (max-width: 991.98px) {
+	#site-header {
+		min-height: 139px;
+	}
+
+	.viazcan-header .viazcan-navbar {
+		padding: 12px 0;
+	}
+
+	.viazcan-header-brand {
+		margin-right: 12px;
+	}
+
+	.viazcan-header-brand img {
+		width: 160px;
+	}
+
+	.viazcan-header .viazcan-menu-toggle {
+		display: inline-flex;
+	}
+
+	.viazcan-header-cart {
+		width: 44px;
+		height: 44px;
+		margin-left: 8px;
+		border-left: 0;
+	}
+
+	.viazcan-header .navbar-collapse {
+		max-height: calc(100dvh - 170px);
+		overflow-y: auto;
+	}
+
+	.viazcan-header .navbar-nav {
+		gap: 0;
+		margin-top: 12px;
+		padding: 8px 0;
+		border-top: 1px solid var(--viazcan-line);
+	}
+}
+
+@media (max-width: 359.98px) {
+	#site-header {
+		min-height: 130px;
+	}
+
+	.viazcan-header-brand img {
+		width: 136px;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.viazcan-header *,
+	.viazcan-header *::after {
+		transition: none;
+	}
+}

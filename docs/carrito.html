@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Carrito | Laboratorios Viazcan</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="https://static.wixstatic.com/media/2858b2_bb7a8c2599a24241b5411826d32ed088.png/v1/fill/w_32%2Ch_32%2Clg_1%2Cusm_0.66_1.00_0.01/2858b2_bb7a8c2599a24241b5411826d32ed088.png" type="image/png">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Jost&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap-icons.min.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/header.css">
+</head>
+<body class="cart-page">
+	<div id="site-header"></div>
+
+	<section class="page-info-section set-bg" data-setbg="img/page-info-bg/2.jpg">
+		<div class="container">
+			<span class="cart-page-kicker">COTIZACION EN LINEA</span>
+			<h2>Tu carrito</h2>
+		</div>
+	</section>
+
+	<main class="cart-page-content pt-0" style="margin-top: 20px;">
+		<div class="container">
+			<div class="cart-page-heading">
+				<div>
+					<span class="eyebrow">REVISA TU SELECCION</span>
+					<h1>Estudios seleccionados</h1>
+					<p>Confirma las cantidades y solicita una cotización personalizada.</p>
+				</div>
+			</div>
+
+			<section class="cart-search-panel" aria-labelledby="cart-search-title">
+				<div class="cart-search-copy">
+					<span class="eyebrow">BUSCAR Y AGREGAR</span>
+					<h2 id="cart-search-title">Encuentra tu estudio</h2>
+					<p>Escribe el nombre y selecciona una sugerencia para añadirlo al carrito.</p>
+				</div>
+				<div class="cart-search-controls">
+					<label for="cart-study-search">Nombre del estudio</label>
+					<div class="cart-search-input">
+						<i class="fa fa-search"></i>
+						<input id="cart-study-search" type="search" autocomplete="off" placeholder="Ej. biometría hemática" aria-label="Buscar estudio">
+					</div>
+					<div id="cart-suggestions" class="cart-suggestions" role="listbox"></div>
+				</div>
+			</section>
+
+			<div class="cart-layout">
+				<section class="cart-items-panel" aria-labelledby="cart-items-title">
+					<div class="cart-panel-heading">
+						<h3 id="cart-items-title">Detalle de estudios</h3>
+						<span id="cart-count-label">0 estudios</span>
+					</div>
+					<div id="cart-items" class="cart-items"></div>
+					<div id="cart-empty" class="cart-empty">
+						<i class="fa fa-shopping-basket"></i>
+						<h3>Tu carrito está vacío</h3>
+						<p>Busca un estudio y agrégalo para comenzar tu cotización.</p>
+					</div>
+				</section>
+
+				<aside class="cart-total-panel">
+					<span class="eyebrow">RESUMEN</span>
+					<h3>Total estimado</h3>
+					<div class="cart-total-line"><span>Estudios</span><strong id="cart-total-items">0</strong></div>
+					<div class="cart-total-line cart-total-grand"><span>Total</span><strong id="cart-total-price">$0</strong></div>
+					<p class="cart-note">El precio final puede confirmarse con nuestro equipo al agendar tu cita.</p>
+					<div class="cart-quote-actions">
+						<button id="whatsapp-button" class="site-btn cart-quote-button cart-whatsapp-button" type="button"><i class="fa fa-whatsapp"></i> Solicitar por WhatsApp</button>
+						<button id="pdf-button" class="site-btn cart-quote-button cart-pdf-button" type="button"><i class="fa fa-file-pdf-o"></i> Descargar cotización PDF</button>
+					</div>
+				</aside>
+			</div>
+		</div>
+	</main>
+
+	<div class="modal fade" id="empty-cart-modal" tabindex="-1" aria-labelledby="empty-cart-modal-title" aria-describedby="empty-cart-modal-description" aria-hidden="true">
+		<div class="modal-dialog modal-sm modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h2 class="modal-title fs-5" id="empty-cart-modal-title">Carrito vacío</h2>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+				</div>
+				<div class="modal-body">
+					<p class="mb-0" id="empty-cart-modal-description">Agrega al menos un estudio para solicitar una cotización.</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-success" data-bs-dismiss="modal">Entendido</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="contacto">
+		<a href="footer.html">Contacto y horarios de Laboratorios Viazcan</a>
+	</div>
+
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/header.js"></script>
+	<script src="js/footer.js"></script>
+	<!-- Carga inicial innecesaria: loadPdfLibrary carga jsPDF al solicitar el PDF.
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+	-->
+	<script>
+		(function(){
+			var storageKey = 'viazcanShoppingCar';
+			var items = document.getElementById('cart-items');
+			var empty = document.getElementById('cart-empty');
+			var countLabel = document.getElementById('cart-count-label');
+			var totalItems = document.getElementById('cart-total-items');
+			var totalPrice = document.getElementById('cart-total-price');
+			var whatsappButton = document.getElementById('whatsapp-button');
+			var pdfButton = document.getElementById('pdf-button');
+			var searchInput = document.getElementById('cart-study-search');
+			var suggestions = document.getElementById('cart-suggestions');
+			var studies = [
+				{ estudio: 'Biometría Hemática', price: 180, instrucciones: 'Ayuno recomendado de 8 horas. Presentarse con identificación.' },
+				{ estudio: 'Química Sanguínea', price: 350, instrucciones: 'Ayuno de 8 a 12 horas. Evitar alcohol y ejercicio intenso el día previo.' },
+				{ estudio: 'Examen General de Orina', price: 120, instrucciones: 'Recolectar la primera orina de la mañana en un frasco estéril.' },
+				{ estudio: 'Perfil de Lípidos', price: 420, instrucciones: 'Ayuno de 9 a 12 horas. No consumir alimentos grasos el día anterior.' },
+				{ estudio: 'Prueba de Embarazo', price: 180, instrucciones: 'No requiere ayuno. Llevar la fecha de la última menstruación.' },
+				{ estudio: 'Hemoglobina Glucosilada', price: 280, instrucciones: 'No requiere ayuno. Informar medicamentos para el control de glucosa.' },
+				{ estudio: 'Cultivo de Orina (Urocultivo)', price: 360, instrucciones: 'Recolectar muestra de chorro medio antes de iniciar antibióticos.' },
+				{ estudio: 'Antígeno Prostático Específico', price: 450, instrucciones: 'Evitar ciclismo y actividad sexual 48 horas antes del estudio.' },
+				{ estudio: 'Pruebas de Función Hepática', price: 520, instrucciones: 'Ayuno de 8 horas. Evitar alcohol y medicamentos sin indicación médica.' },
+				{ estudio: 'Ultrasonido Abdominal', price: 850, instrucciones: 'Ayuno de 6 a 8 horas. Tomar agua y acudir con la vejiga llena.' },
+				{ estudio: 'Ultrasonido Obstétrico', price: 650, instrucciones: 'Llevar estudios previos. La preparación depende de las semanas de gestación.' },
+				{ estudio: 'Radiografía de Tórax', price: 450, instrucciones: 'No requiere ayuno. Informar si existe posibilidad de embarazo.' }
+			];
+
+			function readCart(){
+				try { return JSON.parse(localStorage.getItem(storageKey)) || []; }
+				catch(error) { return []; }
+			}
+
+			function saveCart(cart){
+				localStorage.setItem(storageKey, JSON.stringify(cart));
+			}
+
+			function resetCart(){
+				localStorage.removeItem(storageKey);
+				searchInput.value = '';
+				suggestions.innerHTML = '';
+				render();
+			}
+
+			function money(value){
+				return '$' + Number(value).toLocaleString('es-MX');
+			}
+
+			function getInstructions(item){
+				if(item.instrucciones){ return item.instrucciones; }
+				var study = studies.find(function(availableStudy){ return availableStudy.estudio === item.estudio; });
+				return study ? study.instrucciones : 'Consultar preparación con el laboratorio.';
+			}
+
+			function render(){
+				var cart = readCart();
+				var count = cart.reduce(function(sum, item){ return sum + Number(item.cantidad || 0); }, 0);
+				var total = cart.reduce(function(sum, item){ return sum + (Number(item.cantidad || 0) * Number(item.price || 0)); }, 0);
+				countLabel.textContent = count + (count === 1 ? ' estudio' : ' estudios');
+				totalItems.textContent = count;
+				totalPrice.textContent = money(total);
+				empty.style.display = cart.length ? 'none' : 'block';
+				items.innerHTML = cart.map(function(item, index){
+					return '<article class="cart-item"><div class="cart-item-info"><span>Estudio clínico</span><h4>' + item.estudio + '</h4><strong>' + money(item.price) + '</strong></div><div class="cart-item-actions"><div class="quantity-control"><button type="button" data-action="decrease" data-index="' + index + '" aria-label="Disminuir cantidad">−</button><b>' + item.cantidad + '</b><button type="button" data-action="increase" data-index="' + index + '" aria-label="Aumentar cantidad">+</button></div><button type="button" class="remove-item text-danger" data-action="remove" data-index="' + index + '" aria-label="Eliminar estudio" title="Eliminar estudio"><i class="bi bi-trash" aria-hidden="true"></i></button></div></article>';
+				}).join('');
+			}
+
+			function addStudy(study){
+				var cart = readCart();
+				var existing = cart.find(function(item){ return item.estudio === study.estudio; });
+				if(existing){ existing.cantidad += 1; }
+				else { cart.push({ estudio: study.estudio, price: study.price, cantidad: 1, instrucciones: study.instrucciones }); }
+				saveCart(cart);
+				searchInput.value = '';
+				suggestions.innerHTML = '';
+				render();
+			}
+
+			searchInput.addEventListener('input', function(){
+				var query = searchInput.value.trim().toLowerCase();
+				if(!query){ suggestions.innerHTML = ''; return; }
+				var matches = studies.filter(function(study){ return study.estudio.toLowerCase().indexOf(query) !== -1; }).slice(0, 6);
+				suggestions.innerHTML = matches.length ? matches.map(function(study, index){
+					return '<button type="button" class="cart-suggestion" data-study-index="' + index + '"><span>' + study.estudio + '</span><strong>' + money(study.price) + '</strong></button>';
+				}).join('') : '<div class="cart-no-suggestions">No encontramos ese estudio.</div>';
+				suggestions._matches = matches;
+			});
+
+			suggestions.addEventListener('click', function(event){
+				var button = event.target.closest('[data-study-index]');
+				if(!button){ return; }
+				addStudy(suggestions._matches[Number(button.dataset.studyIndex)]);
+			});
+
+			items.addEventListener('click', function(event){
+				var button = event.target.closest('[data-action]');
+				if(!button){ return; }
+				var cart = readCart();
+				var index = Number(button.dataset.index);
+				var action = button.dataset.action;
+				if(action === 'remove'){ cart.splice(index, 1); }
+				if(action === 'increase' && cart[index]){ cart[index].cantidad += 1; }
+				if(action === 'decrease' && cart[index]){ cart[index].cantidad > 1 ? cart[index].cantidad -= 1 : cart.splice(index, 1); }
+				saveCart(cart);
+				render();
+			});
+
+			function getQuoteData(){
+				var cart = readCart();
+				if(!cart.length){
+					bootstrap.Modal.getOrCreateInstance(document.getElementById('empty-cart-modal')).show();
+					return null;
+				}
+				var total = cart.reduce(function(sum, item){ return sum + (Number(item.cantidad || 0) * Number(item.price || 0)); }, 0);
+				return { cart: cart, total: total };
+			}
+
+			whatsappButton.addEventListener('click', function(){
+				var quote = getQuoteData();
+				if(!quote){ return; }
+				var message = 'Hola, quisiera solicitar una cotización:\n\n' + quote.cart.map(function(item){ return item.cantidad + ' x ' + item.estudio + ' - ' + money(item.price * item.cantidad) + '\nInstrucciones: ' + getInstructions(item); }).join('\n\n') + '\n\nTotal estimado: ' + money(quote.total);
+				window.open('https://wa.me/529515169510?text=' + encodeURIComponent(message), '_blank');
+			});
+
+			function loadPdfLibrary(done){
+				if(window.jspdf && window.jspdf.jsPDF){ done(); return; }
+				var script = document.createElement('script');
+				script.src = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';
+				script.onload = done;
+				script.onerror = function(){ alert('No se pudo cargar el generador de PDF. Revisa tu conexión e intenta nuevamente.'); };
+				document.head.appendChild(script);
+			}
+
+			pdfButton.addEventListener('click', function(){
+				var quote = getQuoteData();
+				if(!quote){ return; }
+				loadPdfLibrary(function(){
+					var doc = new window.jspdf.jsPDF();
+					var logo = new Image();
+					function buildPdf(){
+						if(logo.naturalWidth){ doc.addImage(logo, 'PNG', 20, 12, 42, 18); }
+					doc.setFontSize(19);
+					doc.setTextColor(27, 158, 210);
+					doc.text('Cotización de estudios', 70, 24);
+					doc.setFontSize(9);
+					doc.setTextColor(105, 105, 105);
+					doc.text('Laboratorios Viazcan | Documento informativo', 70, 31);
+					doc.setDrawColor(27, 158, 210);
+					doc.line(20, 39, 190, 39);
+
+					function drawTableHeader(y){
+						doc.setFillColor(27, 158, 210);
+						doc.setTextColor(255, 255, 255);
+						doc.rect(20, y - 5, 170, 10, 'F');
+						doc.setFontSize(10);
+						doc.text('Cantidad', 28, y + 1, { align: 'center' });
+						doc.text('Estudio', 39, y + 1);
+						doc.text('Instrucciones', 84, y + 1);
+						doc.text('P. unitario', 159, y + 1, { align: 'right' });
+						doc.text('Total', 187, y + 1, { align: 'right' });
+					}
+
+					var y = 52;
+					drawTableHeader(y);
+					y += 10;
+					doc.setFontSize(9);
+					quote.cart.forEach(function(item, index){
+						var studyLines = doc.splitTextToSize(item.estudio, 40);
+						var instructionLines = doc.splitTextToSize(getInstructions(item), 69);
+						var rowHeight = Math.max(studyLines.length, instructionLines.length) * 5 + 7;
+						if(y + rowHeight > 270){
+							doc.addPage();
+							y = 20;
+							drawTableHeader(y);
+							y += 10;
+						}
+						if(index % 2 === 0){
+							doc.setFillColor(244, 249, 251);
+							doc.rect(20, y - 5, 170, rowHeight, 'F');
+						}
+						doc.setTextColor(45, 45, 45);
+						doc.text(String(item.cantidad), 28, y + 1, { align: 'center' });
+						doc.text(studyLines, 39, y + 1);
+						doc.text(instructionLines, 84, y + 1);
+						doc.text(money(item.price), 159, y + 1, { align: 'right' });
+						doc.text(money(item.price * item.cantidad), 187, y + 1, { align: 'right' });
+						y += rowHeight;
+					});
+					doc.setDrawColor(27, 158, 210);
+					doc.line(20, y, 190, y);
+					doc.setFontSize(14);
+					doc.setTextColor(45, 45, 45);
+					doc.text('Total estimado', 120, y + 13);
+					doc.setTextColor(27, 158, 210);
+					doc.text(money(quote.total), 187, y + 13, { align: 'right' });
+					doc.setFontSize(9);
+					doc.setTextColor(105, 105, 105);
+					doc.text('El precio final puede confirmarse con nuestro equipo al agendar tu cita.', 20, y + 26);
+						doc.save('cotizacion-viazcan.pdf');
+					}
+					logo.onload = buildPdf;
+					logo.onerror = buildPdf;
+					if(window.location.protocol === 'file:'){
+						buildPdf();
+					} else {
+						logo.src = 'img/viaz2.png';
+					}
+				});
+			});
+
+			window.addEventListener('pageshow', resetCart);
+			resetCart();
+		})();
+	</script>
+</body>
+</html>
